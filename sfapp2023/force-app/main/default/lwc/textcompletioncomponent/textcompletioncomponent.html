@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="OpenAI Text Completion" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-textarea label="Enter Text to Check" value={textToCheck} onchange={handleTextChange}></lightning-textarea>
+            <lightning-button variant="brand" label="Complete Text" onclick={getTextCompletion}></lightning-button>
+            <div if:true={responseText}>
+                <h2>Response:</h2>
+                <p>{responseText}</p>
+            </div>
+            <div if:true={errorText}>
+                <p>Error: {errorText}</p>
+            </div>
+        </div>
+    </lightning-card>
+</template>

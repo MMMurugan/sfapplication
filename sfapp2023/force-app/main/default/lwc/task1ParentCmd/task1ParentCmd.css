@@ -1,0 +1,16 @@
+.maic_sec{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.btn-sec{   
+        background: #009459;
+        border: 1px solid #009459;
+        display: inline-block;
+        color:#fff;
+        min-width: 100px;
+        padding: 10px;
+}
+c-task1-childc-cmd{background-color: aquamarine; display: inline-block;}
+c-task1-childc-cmd .h2{ font-size: 30px; color: orange;}

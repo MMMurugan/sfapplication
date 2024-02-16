@@ -1,0 +1,16 @@
+<template>
+    <div>
+        <lightning-card title={courseDetailInfo.courseName}>
+            <lightning-button label="Enroll" slot="actions"></lightning-button>
+            <div class="slds-p-horizontal_small">
+                <ul>
+                    <li>Course Fee: {courseDetailInfo.courseFee}</li>
+                    <li>Course Duration: {courseDetailInfo.courseDuration}</li>
+                </ul>
+            </div>
+            <div slot="footer" class="slds-text-heading_large slds-text-color_success">
+                {courseDetailInfo.courseRating}
+            </div>
+        </lightning-card>
+    </div>    
+</template>

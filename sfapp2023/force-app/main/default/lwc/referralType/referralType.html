@@ -1,0 +1,17 @@
+<template>
+    <lightning-card >
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-col--padded slds-size_1-of-1 text-center">
+                <lightning-radio-group  class="radio-horizontal provider-type"
+                          label="Radio Group"
+                          options={options}
+                          value={value}
+                          type="radio">
+                </lightning-radio-group>
+                <div class="btnSec mt-20">
+                    <lightning-button label="Next" class="btn btn-pri" variant="brand" onclick={handleSave}></lightning-button>
+                </div>
+            </div>            
+        </div>        
+    </lightning-card>
+</template>

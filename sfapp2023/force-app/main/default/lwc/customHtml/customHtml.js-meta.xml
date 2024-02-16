@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Custom Inner HTML</masterLabel>
+    <description>Display HTML-enhanced text</description>
+    <targets>
+        <target>lightningStatic__Email</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningStatic__Email">
+            <property name="htmlValue" type="String" required="true" default="YOUR CUSTOM INNER HTML HERE"/>
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

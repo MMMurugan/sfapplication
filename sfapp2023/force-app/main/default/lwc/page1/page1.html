@@ -1,0 +1,95 @@
+<template>
+        <lightning-card title="Static Resources">
+            <div class="slds-grid slds-wrap ref-summary">
+                <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-6" style="padding-left: 0px;">
+                    <div class="slds-card pending"  title="MY REFERRALS">
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <p class="title"> Pending</p>
+                                    <p class="value">19</p>
+                                    <img src={icon1}/>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-6">
+                    <div class="slds-card approved" >
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <p class="title"> Approved</p>
+                                    <p class="value">30</p>
+                                </div>                        
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-6">
+                    <div class="slds-card rejected" >
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col ">
+                                    <p class="title"> Rejected</p>
+                                    <p class="value">7</p>
+                                </div>                        
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-6">
+                    <div class="slds-card total" >
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col ">
+                                    <p class="title"> Total Count</p>
+                                    <p class="value">56</p>
+                                </div>                        
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </lightning-card>
+          <div class="slds-grid slds-wrap mt-30" style="position: relative;">
+            <lightning-button label="New Referral" class="btn btn-pri" variant="brand" onclick={handleSave} style="position: absolute;right: 0;top: -3px;"></lightning-button>
+            <!-- <button class="slds-button btn btn-pri" style="position: absolute;right: 0;top: -3px;">New Referral</button> -->
+            <div class="slds-col slds-size_1-of-1">
+                <lightning-tabset>
+                    <lightning-tab label="PENDING">
+                        <lightning-datatable class="custom-tbl"
+                            key-field="id"
+                            data={data}
+                            columns={columns}>
+                        </lightning-datatable>
+                    </lightning-tab>                    
+                    <lightning-tab label="APPROVED">
+                        <lightning-datatable class="custom-tbl"
+                            key-field="id"
+                            data={data}
+                            columns={columns}>
+                        </lightning-datatable>
+                    </lightning-tab>
+                    <lightning-tab label="REJECTED">
+                        <lightning-datatable class="custom-tbl"
+                            key-field="id"
+                            data={data}
+                            columns={columns}>
+                        </lightning-datatable>
+                    </lightning-tab>
+                </lightning-tabset>
+            </div>
+        </div>            
+            <br/><br/>
+        <c-referral-type></c-referral-type>
+            <br/><br/>
+            <c-new-provider-referral></c-new-provider-referral>
+
+            <div class="bg-image">
+            </div>
+
+</template>

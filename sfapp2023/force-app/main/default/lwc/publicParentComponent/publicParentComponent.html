@@ -1,0 +1,8 @@
+<template>
+    <div class="slds-box slds-grid slds-gutters slds-wrap">
+        <template for:each={allCourseDetailInfo} for:item="course">
+            <!-- <c-enroll-course key={course.courseName} course-detail-info={course} class="slds-col"></c-enroll-course> -->
+            <c-public-child-component key={course.courseName} course-detail-info={course} class="slds-col"></c-public-child-component>
+        </template> 
+    </div>   
+</template>

@@ -1,0 +1,14 @@
+.sec-dragdrop{display: block;}
+.sec-dragdrop .Items{
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 15px #45414e14;
+    border-radius: 4px;
+    height: 200px;
+    overflow: auto;
+    padding: 40px 0px 0px 0px;
+    text-align: center;
+    position: relative;
+    width: 20%;
+    display: inline-block;
+    margin: 10px;
+}

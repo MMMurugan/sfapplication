@@ -1,0 +1,12 @@
+<template>
+    <!-- Display the list of unique records -->
+    <template if:true={finalRecords}>
+        <ul>
+            <template for:each={finalRecords} for:item="record">
+                <li key={record.fromEmail}>
+                    From Email: {record.FromEmail}, To Email: {record.ToEmail}
+                </li>
+            </template>
+        </ul>
+    </template>
+</template>

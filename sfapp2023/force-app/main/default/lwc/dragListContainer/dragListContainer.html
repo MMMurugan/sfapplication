@@ -1,0 +1,28 @@
+<template>
+    <!-- <div class="droparea" ondragover={cancel} ondragenter={cancel} ondrop={handleDragComplete}>
+      <div key={item.id} class="row" for:each={items} for:item="item" for:index="index" draggable="true"
+        ondragstart={handleDragStart} data-id={item.id}>
+        {item.value}
+      </div>
+    </div> -->
+    <div name="available" items={availableItems} onstartmove={handleDragStart} onendmove={handleDragComplete}>
+        <div class="droparea" ondragover={cancel} ondragenter={cancel} ondrop={handleDragComplete}>
+            <div class="row" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-1">
+                <h2>Pending Expense Reports</h2>
+            </div>
+            <div class="row" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-2">
+                <h2>Total Expense Reports</h2>
+            </div>
+            <div class="row" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-3">
+                <h2>Approved Expense Reports</h2>
+            </div>
+            <div class="row" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-4">
+                <h2>Returned Expense Reports</h2>
+            </div>
+            <div class="row" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-5">
+                <h2>Rejected Expense Reports</h2>
+            </div>
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,1013 @@
+<!-- sldsValidatorIgnore -->
+<template >
+    <h2 class='sub-title cursor-pt'><a onclick={handleHome}>Home</a></h2> 
+   <div class="slds-grid slds-wrap cw-template-screen page_attendance">
+       <div class="inner-template-screen">
+
+           <template if:true={nodata}>
+               <div class="text-center file-upload slds-p-vertical--xx-large norecord ">
+                   <img class="icon-attachment" src={attachmentIcon} alt="member" />
+                   <p class="slds-text-body_regular slds-text-longform slds-m-top_small">No Attendance Found !</p>
+                   <button class="btn-upload slds-m-top_medium" onclick={handleOpenModal} if:false={btnDisable}>
+                       Add Attendance
+                       <!-- <img src={uploadicon} class="slds-p-right_x-small" alt="upload" /> UPLOAD -->
+                   </button>
+               </div>
+           </template>
+
+
+
+            <footer class="footer cc_footer">
+                <div class="hid-footer-legal hid-content" >
+                   
+                        <div class="slds-align_absolute-center" style="width:100% ">
+                              <div class="hid-copyright" style="width:70%;">© 2024 HID Global Corporation, part of ASSA ABLOY. All trademarks are owned by HID Global Corporation, ASSA ABLOY and/or their respective owners and may not be used without permission. All rights reserved.</div>
+                              <div class="hid-social-icons" style="width:30%;">
+                                <!--<a href="https://twitter.com/HIDGlobal" style="font-size:23px!important;width:25px!important; color:  #003087; width: 24px; height: 24px;" class="hid-social-icon fa fa-twitter-square"></a>
+                                <a href="https://www.facebook.com/HIDGlobal" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-facebook-square"></a>
+                                <a href="https://us.linkedin.com/company/hid-global" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-linkedin-square"></a>
+                                <a href="https://www.youtube.com/hidglobal" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-youtube-square"></a>-->
+                                <a href="https://twitter.com/HIDGlobal"><i class="fa fa-twitter-square"></i></a>
+                                <a href="https://www.facebook.com/HIDGlobal" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-facebook-square"><i class="fa fa-facebook-square"></i></a>
+                                <a href="https://us.linkedin.com/company/hid-global" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-linkedin-square"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="https://www.youtube.com/hidglobal" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-youtube-square"><i class="fa fa-youtube-square"></i></a>
+                            </div> 
+        
+                        </div>
+                        <div class="slds-grid" style="width:100% ">
+                             <div class="hid-legal-links">
+                                  <a href="https://www.hidglobal.com/about/privacy" class="hid-legal-link">Privacy</a>
+                                  <a href="https://www.hidglobal.com/about/terms-of-use" class="hid-legal-link">Terms of Use</a>
+                                  <a href="https://www.hidglobal.com/about/modern-slavery-statement" class="hid-legal-link">Modern Slavery Statement</a>
+                                  <a href="https://www.hidglobal.com/sales-policy" class="hid-legal-link">Sales Policy</a>
+                                  <a href="https://support.hidglobal.com/support-terms-conditions" class="hid-legal-link">Support Terms and Conditions</a>
+                            </div>
+                        </div>
+                      
+                       
+                   
+                    <!--<div class="hid-footer-legal-item hid-social-media">-->
+                 <!--   <div class="hid-social-icon-assa" style="padding-bottom:4px;filter:brightness(.95);"><a href="https://www.assaabloy.com"><img src="https://www.hidglobal.com/sites/all/themes/hidglobal/images/assaabloy-logo.png"></img></a></div> -->
+                    <!--<div class="hid-social-icons">
+                        <a href="https://twitter.com/HIDGlobal" style="font-size:23px!important;width:25px!important; color:  #003087; width: 24px; height: 24px;" class="hid-social-icon fa fa-twitter-square"></a>
+                        <a href="https://www.facebook.com/HIDGlobal" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-facebook-square"></a>
+                        <a href="https://us.linkedin.com/company/hid-global" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-linkedin-square"></a>
+                        <a href="https://www.youtube.com/hidglobal" style="font-size:23px!important;width:25px!important;" class="hid-social-icon fa fa-youtube-square"></a>
+                        </div>
+                    </div> -->
+                </div>
+            </footer>
+        
+        
+
+           <template if:true={attendancedata}>
+               <template if:true={attendanceSummary}>
+                   <section class="attendance-summary">
+                       <div class="slds-grid slds-wrap slds-m-top_medium">
+                           <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-1">
+                               <div class="slds-grid slds-wrap">
+                                   <div
+                                       class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                       <lightning-combobox name="Status" label="Attendance Status MuruganMM" value={submitStatusValue}
+                                           placeholder="Select Program" variant="label-inline" options={submitStatusOptions}
+                                           onchange={handleChange}>
+                                       </lightning-combobox>
+                                   </div>
+                                   <!-- <div
+                                       class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-col--padded slds-large-size_1-of-6">
+                                       <lightning-combobox name="CareLevel" label="Care Level" value={value}
+                                           placeholder="Select Care Level" variant="label-hidden" options={careleveleOptions}
+                                           onchange={handleChange}>
+                                       </lightning-combobox>
+                                   </div>     -->
+                               </div>
+                           </div>
+                       </div>
+                       <div class="slds-grid slds-wrap slds-m-top_medium" style="display: none;">
+                           <div class="slds-col slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4 slds-text-align_center">
+                               <article class="slds-card mm-card not-submitted slds-m-bottom_small" onclick={viewAttendanceDetail}>
+                                   <div class="slds-card__header slds-grid">
+                                       <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                           <div class="slds-media__body">
+                                               <h2 class="slds-card__header-title">
+                                                   Nov 6, 2022 to Nov 19, 2022
+                                               </h2>
+                                           </div>
+                                       </header>
+                                   </div>
+                                   <div class="slds-card__body slds-card__body_inner">
+                                       <table class="ptq-dashboard-card-table">
+                                           <tbody>
+                                               <tr>
+                                                   <th>Provider Name</th>
+                                                   <td>:</td>
+                                                   <td>YMCA Marion County </td>
+                                               </tr>
+                                               <tr>
+                                                   <th>License/Registration No</th>
+                                                   <td>:</td>
+                                                   <td>01987455234</td>
+                                               </tr>
+                                               <tr>
+                                                   <th>Provider type</th>
+                                                   <td>:</td>
+                                                   <td>Center</td>
+                                               </tr>
+                                               <tr>
+                                                   <th>Status</th>
+                                                   <td>:</td>
+                                                   <td><span class="status">Not Submitted </span></td>
+                                               </tr>
+                                           </tbody>
+                                       </table>
+                                   </div>
+                               </article>    
+                           </div>
+                           <div class="slds-col slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4 slds-text-align_center">
+                               <article class="slds-card mm-card submitted slds-m-bottom_small" onclick={viewAttendanceDetail}>
+                                   <div class="slds-card__header slds-grid">
+                                       <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                           <div class="slds-media__body">
+                                               <h2 class="slds-card__header-title">
+                                                   Oct 23, 2022 to Nov 05, 2022
+                                               </h2>
+                                           </div>
+                                       </header>
+                                   </div>
+                                   <div class="slds-card__body slds-card__body_inner">
+                                       <table class="ptq-dashboard-card-table">
+                                           <tbody>
+                                               <tr>
+                                                   <th>Provider Name</th>
+                                                   <td>:</td>
+                                                   <td>YMCA Marion County </td>
+                                               </tr>
+                                               <tr>
+                                                   <th>License/Registration No</th>
+                                                   <td>:</td>
+                                                   <td>01987455234</td>
+                                               </tr>
+                                               <tr>
+                                                   <th>Provider type</th>
+                                                   <td>:</td>
+                                                   <td>Center</td>
+                                               </tr>
+                                               <tr>
+                                                   <th>Status</th>
+                                                   <td>:</td>
+                                                   <td><span class="status">Submitted </span></td>
+                                               </tr>
+   
+                                           </tbody>
+                                       </table>
+                                   </div>
+                               </article>    
+                           </div>
+                       </div>
+                   </section>
+               </template>                
+               <template if:true={attendanceDetails}>
+                   <h2 class="slds-col--padded cursor-pt slds-m-top_small" onclick={backtoAttendanceDashboard}><a href="javascript:void(0)">Back to Dashboard</a></h2>
+                   <div class="slds-col--padded slds-m-top_medium">
+                       <div class="expense-header-wrapper slds-p-top_medium">
+                           <ul>
+                               <li>
+                                   <div>Provider Type</div>
+                                   <strong>Center</strong>
+                               </li>
+                               <li>
+                                   <div>License/Registration No</div>
+                                   <strong class="overflow-ellipse">01987455234</strong>
+                               </li>
+                               <li>
+                                   <div>Status</div>
+                                   <strong class="overflow-ellipse">Not Submitted</strong>
+                               </li>
+                           </ul>
+                       </div>      
+                   </div>          
+                   <div class="slds-grid slds-wrap slds-m-top_medium">
+                       <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_3-of-5">
+                           <div class="slds-grid slds-wrap">
+                               <div
+                                   class="slds-col slds-size_1-of-1 slds-col--padded slds-medium-size_1-of-3 slds-large-size_1-of-5">
+                                   <lightning-input type="search" name="ChildName" label="Child Name" value=""
+                                       placeholder="Child Name">
+                                   </lightning-input>
+                               </div>
+                               <div
+                                   class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-col--padded slds-large-size_1-of-5">
+                                   <lightning-combobox name="Program" label="Program" value={value}
+                                       placeholder="Select Program" options={programTypeOptions}
+                                       onchange={handleChange}>
+                                   </lightning-combobox>
+                               </div>
+                               <div
+                                   class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-col--padded slds-large-size_1-of-5">
+                                   <lightning-combobox name="CareLevel" label="Care Level" value={value}
+                                       placeholder="Select Care Level" options={careleveleOptions}
+                                       onchange={handleChange}>
+                                   </lightning-combobox>
+                               </div>
+                               <div
+                                   class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-col--padded slds-large-size_1-of-5">
+                                   <lightning-combobox name="status" label="Status" value={value}
+                                       placeholder="Select Status" options={statusOptions}
+                                       onchange={handleChange}>
+                                   </lightning-combobox>
+                               </div>
+                               <!-- <div
+                                   class="slds-col slds-size_1-of-1 slds-col--padded slds-medium-size_1-of-3 slds-large-size_1-of-6">
+                                   <lightning-input type="date" name="beginDate" label="Begin Date" value=""
+                                       placeholder="Begin Date" variant="label-hidden">
+                                   </lightning-input>
+                               </div> -->
+                               <!-- <div class="slds-col slds-size_1-of-1 slds-col_padded slds-medium-size_1-of-3 slds-large-size_1-of-6">
+                               <lightning-input type="date" name="endDate" label="End Date" value=""
+                                   placeholder="End Date" variant="label-hidden">
+                               </lightning-input>
+                           </div> -->
+                               <div
+                                   class="slds-col slds-size_1-of-1 slds-col_padded slds-medium-size_1-of-3 slds-large-size_1-of-5 filter-action-icons">
+                                   <button class="slds-button slds-button_icon slds-button_icon-brand icon_filter slds-m-right_small"
+                                       title="Search">
+                                       <svg class="slds-button__icon" aria-hidden="true">
+                                           <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                                       </svg>
+                                       <span class="slds-assistive-text">Search</span>
+                                   </button>
+
+                                   <lightning-icon size="xx-small" class="slds-p-horizontal_small icon_filter"
+                                       icon-name="action:refresh" alternative-text="refresh" title="refresh">
+                                   </lightning-icon>
+                                   <!-- <span class="slds-icon_container slds-icon_container_circle slds-icon-action-refresh" title="Refresh">
+                                   <svg class="slds-icon" aria-hidden="true">
+                                   <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#refresh"></use>
+                                   </svg>
+                                   <span class="slds-assistive-text">Refresh</span>
+                               </span> -->
+                                   <!-- <lightning-icon size="xx-small" class="slds-p-horizontal_small" icon-name="action:remove" alternative-text="remove" title="remove"></lightning-icon>
+                               <lightning-icon size="xx-small" class="slds-p-horizontal_small" icon-name="action:refresh" alternative-text="refresh" title="refresh"></lightning-icon> -->
+                               </div>
+                           </div>
+                       </div>
+                       <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_2-of-5">
+                           <div class="slds-grid slds-wrap slds-float_right">
+                               <div class="slds-col slds-col--padded slds-size_1-of-1 slds-p-top_medium">
+                                   <ul class="text_detailifo">
+                                       <li> NC - No Change  </li>
+                                       <li> <span class="present"></span> Present </li>
+                                       <li> <span class="absent"></span> Absent </li>
+                                       <li> <span class="nopay"></span> Day Off </li>
+                                       <li> <span class="pc"></span> Paid Closure </li>
+                                   </ul>
+                               </div>
+                               <!-- <div class="mm-dropdown">  
+                                       <lightning-combobox name="mainStaff" label="Main Staff" value={value}
+                                           placeholder="Weekly" variant="label-hidden" options={dayOptions}
+                                           onchange={handleChange}>
+                                       </lightning-combobox>
+                                   </div> 
+                               <div class="date-range"><div class="icon-container"><span class="ic-chevron-left icon icon-xs">&lt;</span></div><label class="d-flex align-items-center"><span>Nov 06 - Nov 12, 2022</span></label><div class="icon-container"><span class="ic-chevron-right icon icon-xs">&gt;</span></div></div> -->
+                           </div>
+                       </div>
+                   </div>
+                   <div class="slds-grid slds-wrap">
+                       <div class="slds-col slds-size_1-of-1 slds-col--padded slds-p-top_medium">
+                           <div class="slds-scrollable">
+                               <div class="table-responsive">
+                                   <table class="table attendance-table">
+                                       <thead>
+                                           <tr>
+                                               <th>Children Name <span class="arrow short_arrow-down"></span></th>
+                                               <th>Care Level 
+                                                   <!-- <span class="arrow short_arrow-down"></span> -->
+                                               </th>
+                                               <th>NC <span></span></th>
+                                               <th>Sun <span>11/06</span></th>
+                                               <th>Mon <span>11/07</span></th>
+                                               <th>Tue <span>11/08</span></th>
+                                               <th>Wed <span>11/09</span></th>
+                                               <th>Thur<span>11/10</span></th>
+                                               <th>Fri <span>11/11</span></th>
+                                               <th>Sat <span>11/12</span></th>
+                                               <th>Sun <span>11/13</span></th>
+                                               <th>Mon <span>11/14</span></th>
+                                               <th>Tue <span>11/15</span></th>
+                                               <th>Wed <span>11/16</span></th>
+                                               <th>Thur<span>11/17</span></th>
+                                               <th>Fri <span>11/18</span></th>
+                                               <th>Sat <span>11/19</span></th>
+                                               <!-- <th>Authorized</th> -->
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <td>
+                                                   <div class="child-detail">
+                                                       <div class="child-info">
+                                                           <p class="child-name"> Declan  SB</p>
+                                                           <p>On My Way PRE-K / <span class="link" onclick={openchildinfo}>1120500 </span></p>
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td>Infant</td>
+                                               <td>
+                                                   <lightning-input type="checkbox" label="NC" name="noChange"
+                                                       variant="label-hidden"></lightning-input>
+                                               </td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span>   
+                                                       </td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span>  
+                                                   </td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="absent"><span class="att-check"
+                                                       onclick={openEditAttendance}></span>
+                                                       <template if:true={popover}>
+                                                           <section aria-describedby="dialog-body-id-110" aria-label="Dialog Title" class="slds-popover slds-nubbin_left" role="dialog">
+                                                               <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog" onclick={popovercloase}>
+                                                                 <svg class="slds-button__icon" aria-hidden="true">
+                                                                   <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                                                 </svg>
+                                                                 <span class="slds-assistive-text">Close dialog</span>
+                                                               </button>
+                                                               <div class="slds-popover__body" id="dialog-body-id-110">
+                                                                 <div class="slds-media">
+                                                                   <div class="slds-media__body">
+                                                                       <div class="slds-col slds-col--padded slds-size_1-of-1 slds-p-top_large attendanceToggle">
+                                                                           <lightning-radio-group type="button" options={attendanceOptions} class=""
+                                                                               name="Attendance" label="Attendance">
+                                                                           </lightning-radio-group>
+                                                                       </div>
+                                                                   </div>
+                                                                 </div>
+                                                               </div>
+                                                               <footer class="slds-popover__footer">
+                                                                 <div class="slds-grid slds-grid_vertical-align-center">
+                                                                   <lightning-button variant="brand" label="Update" title="Save" onclick={addEmployeeRedirect}
+                                                                   class="slds-m-left_x-small"></lightning-button>
+                                                                 </div>
+                                                               </footer>
+                                                             </section>
+                                                       </template>
+                                                   </td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="nopay"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="pc"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                           </tr>
+                                           <tr class="no_change">
+                                               <td>
+                                                   <div class="child-detail">
+                                                       <div class="child-info">
+                                                           <p class="child-name">Barrett, Aubrey R</p>
+                                                           <p>CCDF / <span class="link" onclick={openchildinfo}>1120201</span></p>
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td>Preschool</td>
+                                               <td>
+                                                   <lightning-input type="checkbox" label="NC" name="noChange" checked="true"
+                                                       variant="label-hidden"></lightning-input>
+                                               </td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="pc"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                           </tr>
+                                           <tr class="noAuthorization">
+                                               <td>
+                                                   <div class="child-detail">
+                                                       <div class="child-info">
+                                                           <p class="child-name"> Brown, Austin M</p>
+                                                           <p>CCDF/ <span class="link" onclick={openchildinfo}>1125576</span></p>
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td>Infant</td>
+                                               <td>
+                                                   <lightning-input type="checkbox" label="NC" name="noChange"
+                                                       variant="label-hidden"></lightning-input>
+                                               </td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance">
+                                                   <span class="att-check"
+                                                       onclick={openEditAttendance}></span>
+
+                                                   </td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="pc"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                           </tr>
+                                           <tr class="no_change">
+                                               <td>
+                                                   <div class="child-detail">
+                                                       <div class="child-info">
+                                                           <p class="child-name"> John, Wick</p>
+                                                           <p>CCDF/ <span class="link" onclick={openchildinfo}>1235674</span></p>
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                               <td>Infant</td>
+                                               <td>
+                                                   <lightning-input type="checkbox" label="NC" name="noChange" checked
+                                                       variant="label-hidden"></lightning-input>
+                                               </td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="pc"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="present"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                               <td class="noAttendance"><span class="att-check"
+                                                       onclick={openEditAttendance}></span></td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+                       </div>
+                       <!-- <c-common-pagination get-count={totalRecordsCount} page={page} setsize={setPagination}
+                           perpage={perpage} onprogressvaluechange={hanldeProgressValueChange}>
+                       </c-common-pagination> -->
+                   </div>
+                   <div
+                       class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-1 slds-p-top_medium">
+                       <div class="slds-clearfix">
+                           <div class="slds-float_right attendence-footer">
+                               <lightning-button variant="brand" class="btn btn-sec slds-m-right_x-small" label="Cancel" title="Cancel"
+                                   onclick={handleCloseModal}>
+                               </lightning-button>
+                               <lightning-button variant="brand" class="btn btn-sec slds-m-right_x-small" label="Save As Draft" title="Save"
+                                   onclick={handleCloseModal}>
+                               </lightning-button>
+                               <lightning-button variant="brand" label="Save and Proceed" title="Submit Attendance"
+                                   onclick={submitAttendance}></lightning-button>
+                               <!-- <div class="slds-p-around_x-small">
+                                   <lightning-button class="btn btn-pri" label="Submit Attendance" variant='brand'
+                                       onclick={handleSave} disabled={isSaveBtnDisabled}>
+                                   </lightning-button>
+                               </div> -->
+                           </div>
+                       </div>
+                   </div>
+               </template> 
+               <template if:true={showSubmitAttendance}>
+                   <!-- <h2 class="slds-p-around_small" onclick={backtoAttendanceDetails}>Back to Attendance Details</h2> -->
+                   <div class="slds-grid slds-wrap">
+                       <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_5-of-8">
+                           <div class="bdr-bot capsHeading slds-p-vertical_medium"> Attendance Submitting Details</div>
+   
+                           <lightning-datatable columns={attendanceColumns} data={allAttendanceData} key-field="childName" hide-checkbox-column sorted-by={sortBy}
+                           sorted-direction={sortDirection} class="slds-max-medium-table_stacked">
+                           </lightning-datatable>
+                       </div>
+                       <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_3-of-8">
+                           <div class="slds-grid slds-wrap">
+                               <div class="slds-col slds-size_12-of-12 slds-p-around_large">
+                                   <div class="slds-card slds-p-top_small">
+                                       <div class="decision-form complaints">
+                                           <div class="decision-mainbox">
+                                               <div class="submit-Down">
+                                                   <div class="decision-content">
+                                                       <div class="slds-wrap slds-grid center-align">
+                                                           <!-- <div class="slds-col--padded">
+                                                               <div class="text-center decision-icon"><img src={decisionIcon}
+                                                                       class="iconpadbot" alt="childsumit" />
+                                                               </div>
+                                                               <div class="decision-input-wrapper">
+                                                                   <div class="add-sign slds-p-vertical_large">
+                                                                       <div if:false={addSign}>
+                                                                           <lightning-button label="Add Signature" onclick={signaturemodal}
+                                                                               icon-name="action:follow">
+                                                                           </lightning-button>
+                                                                       </div>
+                                                                       <div if:true={addSign}>
+                                                                           <div class="sign-added widaddedsign">
+                                                                               <label class="btn-link">
+                                                                                   <div class="slds-button slds-button_neutral">Signature
+                                                                                       Added
+                                                                                   </div>
+                                                                               </label>
+                                                                               <a class="slds-icon-utility-edit" onclick={signaturemodal}>
+                                                                                   <span
+                                                                                       class="slds-icon_container slds-icon-utility-edit slds-input__icon slds-input__icon_right complaint-edit-decision">
+                                                                                       <lightning-icon icon-name="utility:edit"
+                                                                                           alternative-text="Edit" size="x-small"
+                                                                                           class="editIcon-pos"></lightning-icon>
+                                                                                   </span>
+                                                                               </a>
+                                                                           </div>
+                                                                           <div class="slds-m-top_medium">
+                                                                               <p><strong>Date :</strong> {dateValue}</p>
+                                                                           </div>
+                                                                       </div>
+                                                                   </div>
+                                                               </div>
+                                                           </div> -->
+                                                           <div class="slds-col--padded declareCheckbox slds-p-vertical_large">
+                                                               <lightning-input
+                                                                   label="I hereby certify all attendance submitted is true and correct to the best of my knowledge. I understand that my attendance records are subject to review by OECOSL at any time and that I may be visited by a representative from FSSA audit services to review attendance records."
+                                                                   class="slds-p-left_xx-large SSNClass" type="checkbox"
+                                                                   onchange={handleChange} checked={checkboxVal} disabled={isDisableCheck}>
+                                                               </lightning-input>
+                   
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="slds-clearfix slds-p-around_medium summary-footermmm">
+                                                   <div class="slds-float_right">
+                                                       <lightning-button variant="brand" class="btn btn-sec" label="Back" title="Back"
+                                                           onclick={backtoAttendanceDetails}>
+                                                       </lightning-button>
+                                                       <lightning-button label="Submit Attendance" class="btn btn-pri slds-m-left_x-small"
+                                                           onclick={submitMethod}>
+                                                       </lightning-button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <!-- <div class="slds-col slds-col--padded slds-size_1-of-1 slds-large-size_4-of-12 displayMain">
+                                   <div class="display-box">
+                                       <img src={signatureValue} alt="signature">
+                                   </div>
+                               </div> -->
+                           </div>
+                       </div>
+                   </div>
+               </template>
+               
+           
+           </template>
+
+       </div>
+   </div>
+   <!-- <div class="slds-grid slds-wrap">
+       <div class="slds-size_1-of-1 pos-contactus-btn_attendance">              
+         <c-oecosl-contact-us-request current-page={currentPage}></c-oecosl-contact-us-request>
+       </div>
+    </div> -->
+
+
+   <template if:true={isOpenModal}>
+       <div style="height: 500px">
+           <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-m1" aria-modal="true"
+               aria-describedby="modal-m1" class="slds-modal slds-fade-in-open slds-modal_small">
+               <div class="slds-modal__container">
+                   <header class="slds-modal__header">
+                       <h2 id="modal-heading-upload" class="slds-text-heading_medium slds-hyphenate">
+                           Add your Attendance
+                       </h2>
+                       <button class="close-button" title="Close" onclick={handleCloseModal}></button>
+                   </header>
+                   <div class="slds-modal__content">
+                       <div class="slds-col--padded font10">
+                           Please add the details below:
+                       </div>
+                       <div class="colfilewhole">
+                           <div class="upload-form-container">
+                               <div class="upload-form">
+                                   <div class="slds-grid slds-wrap">
+                                       <div class="slds-col slds-col--padded slds-large-size_1-of-2">
+                                           <lightning-combobox name="childName" value="" placeholder="Select an Option"
+                                               options="" onchange={handlechange} label="Child Name" required>
+                                           </lightning-combobox>
+                                       </div>
+                                       <div class="slds-col slds-col--padded slds-large-size_1-of-2">
+                                           <lightning-input type="date" name="date" label="Date" value="" required>
+                                           </lightning-input>
+                                       </div>
+                                       <div class="slds-col slds-col--padded slds-large-size_1-of-2">
+                                           <lightning-combobox name="childProgram" value=""
+                                               placeholder="Select an Option" options="" onchange={handlechange}
+                                               label="Program" required>
+                                           </lightning-combobox>
+                                       </div>
+                                       <div class="slds-col slds-col--padded slds-large-size_1-of-2">
+                                           <lightning-combobox name="staff" value="" placeholder="Select an Option"
+                                               options="" onchange={handlechange} label="Staff" required>
+                                           </lightning-combobox>
+                                       </div>
+                                       <div class="slds-col slds-col--padded slds-large-size_1-of-2">
+                                           <lightning-textarea name="Title" label="Comments"></lightning-textarea>
+                                       </div>
+                                       <div
+                                           class="slds-col slds-col--padded slds-large-size_1-of-2 slds-p-top_large attendanceToggle">
+                                           Attendance <lightning-input data-id="toggle1" type="toggle"
+                                               label="Attendance" class="slds-show_inline slds-p-left_small"
+                                               variant="label-hidden" onchange={changeToggle}></lightning-input>
+                                       </div>
+                                       <div class="slds-col slds-col--padded slds-size_1-of-1 slds-m-top_small">
+                                           <strong class="font10">Logged in user: </strong>
+                                           <span class="font10">Robert G.A</span>
+                                       </div>
+                                       <!-- <div
+                       class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2  slds-p-vertical_xx-medium slds-m-top_small">
+                       <strong class="font10">Uploaded Date: </strong>
+                       9/7/2022, 11:49 AM
+                     </div> -->
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <footer class="slds-modal__footer">
+                       <lightning-button variant="brand" class="btn btn-sec" label="Cancel" title="Cancel"
+                           onclick={handleCloseModal}>
+                       </lightning-button>
+
+                       <lightning-button variant="brand" label="Save" title="Save" onclick={addEmployeeRedirect}
+                           class="slds-m-left_x-small"></lightning-button>
+                   </footer>
+               </div>
+           </section>
+           <div class="slds-backdrop slds-backdrop_open"></div>
+       </div>
+   </template>
+   <template if:true={showEditAttendance}>
+       <div>
+           <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-m1" aria-modal="true"
+               aria-describedby="modal-m1" class="slds-modal slds-fade-in-open slds-modal_small-mm">
+               <div class="slds-modal__container">
+                   <header class="slds-modal__header">
+                       <h2 class="slds-text-heading_medium slds-hyphenate">
+                           Edit your Attendance
+                       </h2>
+                       <button class="close-button" title="Close" onclick={handleCloseModal}></button>
+                   </header>
+                   <div class="slds-modal__content">
+                       <div class="slds-grid slds-wrap">
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Child Name : <strong>Declan SB</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Date : <strong>11/22/2022</strong></p>
+                           </div>
+                           <div class="slds-col slds-col--padded slds-size_1-of-1 slds-p-top_large attendanceToggle">
+                               <lightning-radio-group type="button" options={attendanceOptions} class=""
+                                   name="Attendance" label="Attendance" variant="label-inline">
+                               </lightning-radio-group>
+                           </div>
+                           <!-- <div  class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-1">
+                               <lightning-combobox name="Voucher" label="Voucher Detail" value={value}
+                               placeholder="Select Voucher" variant="label-inline" options={programTypeOptions}
+                               onchange={handleChange}>
+                           </lightning-combobox>
+                           </div> -->
+                          
+                           <!-- <div class="slds-col slds-col--padded slds-size_1-of-1 slds-m-top_small">
+                               <strong class="font10">Logged in user: </strong>
+                               <span class="font10">Robert G.A</span>
+                           </div> -->
+                       </div>
+                   </div>
+                   <footer class="slds-modal__footer">
+                       <lightning-button variant="brand" class="btn btn-sec" label="Cancel" title="Cancel"
+                           onclick={handleCloseModal}>
+                       </lightning-button>
+                       <lightning-button variant="brand" label="Update" title="Save" onclick={addEmployeeRedirect}
+                           class="slds-m-left_x-small"></lightning-button>
+                   </footer>
+               </div>
+           </section>
+           <div class="slds-backdrop slds-backdrop_open"></div>
+       </div>
+   </template>
+   <template if:true={showchildinfo}>
+       <div>
+           <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-m1" aria-modal="true"
+               aria-describedby="modal-m1" class="slds-modal slds-fade-in-open slds-modal_small">
+               <div class="slds-modal__container">
+                   <header class="slds-modal__header">
+                       <h2 class="slds-text-heading_medium slds-hyphenate fontweight">
+                           Child Details
+                       </h2>
+                       <button class="close-button" title="Close" onclick={handleCloseModal}></button>
+                   </header>
+                   <div class="slds-modal__content">
+                       <!-- <div class="slds-col--padded font10">
+                           Please add the details below:
+                       </div> -->
+
+                       <div class="slds-grid slds-wrap slds-hide">
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Child Name : <strong>Declan SB</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Child’s Date of Birth : <strong>10/05/2007</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Client ID : <strong>130315085</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Case ID : <strong>CC-345876</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Applicant Name : <strong>Therlonges, Rach Alle</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Care Level : <strong>Infant</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Total Absences During Authorization Period : <strong>1</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Authorization Begin Date : <strong>10/05/2022</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Authorization End Date : <strong>12/05/2022</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Co-Pay : <strong>$56.20</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Subsidy Amount : <strong>$56.20</strong></p>
+                           </div>
+                           <!-- <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <lightning-input type="date" name="Entrollment" label="Entrollment Date" value="">
+                               </lightning-input>
+                           </div> -->
+
+                           <!-- <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-1">
+                               <lightning-textarea name="Title" label="Child Comments"></lightning-textarea>
+                           </div> -->
+
+                       </div>
+                       <div class="slds-grid slds-wrap">
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Child Name : <strong>Declan SB</strong></p>
+                           </div>                           
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Client ID : <strong>130315085</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Child’s Date of Birth : <strong>10/05/2007</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Care Level : <strong>Infant</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Case ID : <strong>CC-345876</strong></p>
+                           </div>
+                           
+                           <div
+                           class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                           <p>Authorization Begin Date : <strong>10/05/2022</strong></p>
+                       </div>
+                       <div
+                           class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                           <p>Authorization End Date : <strong>12/05/2022</strong></p>
+                       </div>
+                       <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Co-Pay Amount: <strong>$56.20</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Subsidy Amount : <strong>$56.20</strong></p>
+                           </div>
+                           
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Applicant Name : <strong>Therlonges, Rach Alle</strong></p>
+                           </div>
+                           
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <p>Total Absences During Authorization Period : <strong>1</strong></p>
+                           </div>
+                          
+                           
+                           <!-- <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-2">
+                               <lightning-input type="date" name="Entrollment" label="Entrollment Date" value="">
+                               </lightning-input>
+                           </div> -->
+
+                           <!-- <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-large-size_1-of-1">
+                               <lightning-textarea name="Title" label="Child Comments"></lightning-textarea>
+                           </div> -->
+
+                       </div>
+                   </div>
+                   <!-- <footer class="slds-modal__footer">
+                       <lightning-button variant="brand" class="btn btn-sec" label="Cancel" title="Cancel"
+                           onclick={handleCloseModal}>
+                       </lightning-button>
+
+                       <lightning-button variant="brand" label="Save" title="Save" onclick={addEmployeeRedirect}
+                           class="slds-m-left_x-small"></lightning-button>
+                   </footer> -->
+               </div>
+           </section>
+           <div class="slds-backdrop slds-backdrop_open"></div>
+       </div>
+   </template>
+
+   <template if:true={showSubmitAttendancemmmmmmmmm}>
+       <div>
+           <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-m1" aria-modal="true"
+               aria-describedby="modal-m1" class="slds-modal slds-fade-in-open slds-modal_small">
+               <div class="slds-modal__container">
+                   <header class="slds-modal__header">
+                       <h2 class="slds-text-heading_medium slds-hyphenate">
+                           Submit Attendance
+                       </h2>
+                       <button class="close-button" title="Close" onclick={handleCloseModal}></button>
+                   </header>
+                   <div class="slds-modal__content">
+                       <div class="slds-grid slds-wrap">
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Catre Level : <strong>Declan SB</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Program Name : <strong>11/22/2022</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Provider Name : <strong>Declan SB</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Period Name : <strong>11/22/2022</strong></p>
+                           </div>
+
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Total Chiilren : <strong>6</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Total Present : <strong>5</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Total absent : <strong> 1</strong></p>
+                           </div>
+                           <div
+                               class="slds-col slds-col--padded slds-p-vertical_small slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                               <p>Total Off Day : <strong>0</strong></p>
+                           </div>
+                          
+                          
+                           <div class="slds-col slds-col--padded slds-size_1-of-1 slds-m-top_small">
+                               <strong class="font10">Submitted By: </strong>
+                               <span class="font10">Robert G.A</span>
+                           </div>
+
+                       </div>
+                   </div>
+                   <footer class="slds-modal__footer">
+                       <lightning-button variant="brand" class="btn btn-sec" label="Cancel" title="Cancel"
+                           onclick={handleCloseModal}>
+                       </lightning-button>
+
+                       <lightning-button variant="brand" label="Submit" title="Save" onclick={addEmployeeRedirect}
+                           class="slds-m-left_x-small"></lightning-button>
+                   </footer>
+               </div>
+           </section>
+           <div class="slds-backdrop slds-backdrop_open"></div>
+       </div>
+   </template>
+
+   <template if:true={confirmModel}>
+       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+         aria-describedby="modal-content-id-3" class="slds-modal slds-fade-in-open confirm-popup" title="delete">
+         <div class="slds-modal__container" style="width: 35%;">
+           <div class="popborder">
+             <header class="slds-modal__header">
+               <button class="close-button" title="Close" onclick={handleCloseModal}></button>
+             </header>
+             <!-- modal body start -->
+             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+               <div class="slds-align_absolute-center review-icon">
+                 <p>Are you sure you want to submit attendance for 11/06/2022 to 11/19/2022 ? </p>
+               </div>
+             </div>
+             <!-- modal footer start-->
+             <footer class="slds-modal__footer slds-align_absolute-center">               
+               <button class="slds-button slds-button_outline-brand"
+                 onclick={handleCloseModal}>No</button>
+                 <button class="slds-button btn btn-yes" onclick={handleDelete}
+                 disabled={disabled}>Yes</button>
+             </footer>
+           </div>
+         </div>
+       </section>
+       <div class="slds-backdrop slds-backdrop_open"></div>
+     </template>
+
+
+</template>

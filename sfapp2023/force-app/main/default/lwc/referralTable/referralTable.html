@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-wrap ">
+            <div class="slds-col slds-col--padded slds-size_1-of-1">
+                <lightning-tabset>
+                    <lightning-tab label="Item One">
+                        Content for tab 1
+                    </lightning-tab>
+                    <template if:true={showTabTwo}>
+                        <lightning-tab label="Item Two">
+                            Content for tab 2
+                        </lightning-tab>
+                    </template>
+                </lightning-tabset>
+            </div>
+        </div>
+    </lightning-card>
+
+</template>

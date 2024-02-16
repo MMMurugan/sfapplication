@@ -1,0 +1,11 @@
+<template>
+	<select onchange={onselect}>
+		<template for:each={selectionOptions} for:item="item">
+			<option key={item.name} value={item.name} selected={item.selected}>{item.label}</option>
+		</template>
+	</select>
+
+	<hr>
+
+	<c-dog-image breed={selectedBreed}></c-dog-image>
+</template>

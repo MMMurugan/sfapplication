@@ -1,0 +1,57 @@
+<template>
+    <h2>
+        case Manager 
+    </h2>
+
+    <!-- <ul>
+       <template for:each={caseDetails.data} for:item="cases">
+           <li key={cases.Id}>
+                {cases.Id}
+           </li>
+        </template>
+           
+    </ul> -->
+    <!-- <lightning-combobox name="accountList" label="Select Account to get All Contacts"
+    placeholder="Choose Account Name" value={selectedAccount}
+    options={accountOptions}
+    onchange={accountNameChange}></lightning-combobox>
+     -->
+
+     <div class="slds-wrap slds-grid center-align">
+        <div class="slds-col--padded">
+            <lightning-input label="Search Case Number"
+                            placeholder="Case Number"
+                            value={searchCaseNumber}
+                            onchange={caseNumberChange}>
+
+            </lightning-input>
+            
+        </div>
+    </div>
+
+    <div class="slds-wrap slds-grid center-align">
+        <template for:each={caseList} for:item="eachCase">
+            <div class="slds-col--padded slds-size_1-of-1 slds-medium-size--1-of-2 slds-large-size_1-of-4" key={eachCase.Id}>
+                    <lightning-card title={eachCase.CaseNumber} key={eachCase.Id}>
+                        <div slot="actions">
+                            <template if:true={eachCase.IsClosed}>
+                                <span style="color:green"><strong>Closed</strong></span>
+                            </template>                            
+                               <template if:false={eachCase.IsClosed}>                                  
+                                        <lightning-button label="Close Case" variant="success" name={eachCase.Id} value={eachCase.Id} onclick={passCaseToClose}></lightning-button>
+                               </template>
+                        </div>
+                        <p class="slds-p-horizontal_medium">
+                            <!-- <strong>Account Name: </strong> {eachCase.Account.Name} -->
+                        </p>
+                        <p class="slds-p-horizontal_medium">
+                            <strong>Description: </strong> {eachCase.Description}
+                        </p>
+                        <p class="slds-p-horizontal_medium">
+                            <strong>Status: </strong> {eachCase.Status}
+                        </p>
+                    </lightning-card>
+            </div>            
+        </template>
+    </div>
+</template>

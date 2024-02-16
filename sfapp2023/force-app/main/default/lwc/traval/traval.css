@@ -1,0 +1,41 @@
+.travel_print{
+    background-color: #ffff;
+}.bdr-bot {
+    border-bottom: 1px solid #D0D0D0FC;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}.travel_print td{padding: 10px;}
+.textheading{
+    padding-bottom: 10px;
+}th.slds-size_3-of-10{
+    padding: 15px;
+}th.slds-is-resizable.slds-is-sortable{
+    background-color: #ffff;
+}
+
+
+
+/* .invoice{background: url(../);} */
+.main, .header{padding: 0 50px;}
+.main{padding-bottom: 50px;}
+.header, .rateinfo thead{ background: #0f0f28; color: #fff; border: 2px solid #0f0f28; display: inline-table;  width: 100%;}
+.header td{width: 50%;}
+.main{ background: #fff; color: #000;}
+.header td{height: 125px;}
+.title-text{font-size: 50px; font-weight: 100;}
+.bill-info td{width: calc(100%/3); padding: 30px 0;}
+.text-align-right, .activity-info th:last-child, .activity-info td:last-child{text-align: right;}
+.rateinfo thead th{font-size: 18px; text-transform: uppercase;padding: 15px;font-weight: 400;}
+.activity-info{ border: 2px solid #0f0f28;width: 100%;min-height: 300px;display: inline-table;vertical-align: top;}
+.activity-info td{padding: 15px;}
+.baltext{ padding-top: 15px;}
+.baltext span{font-size: 16px;font-weight: 600;}
+.baltext span:first-child{margin-right: 50px;}
+.baltext span:last-child{margin-right: 20px;}
+.invoice{font-size: 14px;}
+.invoice .footer { color: #0f0f28; font-size: 14px; text-align: center; margin: 10px auto 0;}
+
+
+/*************** table ****************/
+.col-center{text-align: center;}

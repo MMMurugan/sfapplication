@@ -1,0 +1,81 @@
+<template>
+    <div class="sec-main">
+        <div class="sec-complaintReview">
+            <h1>Complaint Review Here</h1>
+            <div class="sec-input">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col--padded slds-size_1-of-1 slds-medium-size--1-of-2">
+                        <span>
+                            <lightning-input type="date" required  autocomplete="off"
+                                onchange={handleChange} placeholder='Select Visitation Start Date'
+                                label="Visitation Start Date">
+                            </lightning-input>
+                        </span>
+                    </div>
+                    <div class="slds-col--padded slds-size_1-of-1 slds-medium-size--1-of-2">
+                        <span>
+                            <lightning-input type="date" autocomplete="off" 
+                                placeholder='Select Visitation End Date' 
+                                label="Visitation End Date">
+                            </lightning-input>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec-checkbox">
+                <h3>Check All Methords of Contact Used To Collect Information Regarding The Investigation:</h3>
+                
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col--padded slds-p-bottom_medium slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 startFrmEnd">
+                        <lightning-input type="checkbox" name="sexOffender" data-element="sexOffender"
+                            label="Phone Call" >
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-bottom_medium slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 startFrmEnd">
+                        <lightning-input type="checkbox" name="judiCaseSearch" data-element="judiCaseSearch"
+                            label="Interview" >
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-bottom_medium slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 startFrmEnd">
+                        <lightning-input type="checkbox" name="substanceNewBorn" data-element="substanceNewBorn"
+                            label="Site Visit">
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-bottom_medium slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 startFrmEnd">
+                        <lightning-input type="checkbox" name="safeHveBaby" data-element="safeHveBaby"
+                            label="Email Request for Information" >
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-bottom_medium slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 startFrmEnd">
+                        <lightning-input type="checkbox" name="safeHveBaby" data-element="safeHveBaby"
+                            label="Fax Request for Information" >
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-bottom_medium slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 startFrmEnd">
+                        <lightning-input type="checkbox" name="safeHveBaby" data-element="safeHveBaby"
+                            label="Letter Request for Information" >
+                        </lightning-input>
+                    </div>
+                </div>               
+            </div>
+        </div>
+        <div class="sec-bottom">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                    <div class="">
+                        <lightning-button class="btn btn-sec" label="CANCEL"></lightning-button>
+                        <lightning-button label="SAVE" class="btn btn-pri slds-m-left_x-small "
+                           ></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

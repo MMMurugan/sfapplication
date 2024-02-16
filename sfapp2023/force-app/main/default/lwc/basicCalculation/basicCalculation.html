@@ -1,0 +1,26 @@
+<template>
+    
+    <div class="slds-grid slds-wrap ">
+        <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+            <lightning-input type="text" value={firstInput} onchange={firstInputChange} label="First No" placeholder="Enter the 1st no"></lightning-input>
+        </div>
+        <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+            <lightning-input type="text" value={secondInput} onchange={secondInputChange} label="Second No" placeholder="Enter the 2nd no"></lightning-input>
+        </div>
+    </div>
+
+    <lightning-button-group class="slds-p-top_medium">
+        <lightning-button label="Addition" onclick={addition} variant="brand"></lightning-button>
+        <lightning-button label="Subtraction" onclick={subtraction} variant="destructive"></lightning-button>
+        <lightning-button label="Multiplication" onclick={multiplication} variant="brand"></lightning-button>
+        <lightning-button label="Division" onclick={division} variant="destructive"></lightning-button>
+    </lightning-button-group>
+
+
+
+    <br/>
+    <template  if:true={showResult}>
+  <p> Total Add Value: {totalValue} </p>
+</template>
+
+</template>

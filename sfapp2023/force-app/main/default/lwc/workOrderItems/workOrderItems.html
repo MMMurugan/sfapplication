@@ -1,0 +1,64 @@
+<template>
+    <div class="slds-wrap slds-grid">
+        <div class="slds-col slds-col--padded slds-size--1-of-1 slds-m-bottom_small slds-text-align_right">
+            <div class="btnSecm">
+                <lightning-button class="btn btn-pri" label="Add WO Items" onclick={addWorkOrderItem}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+    <template if:true={showDataTable}>
+        <div class="slds-wrap slds-grid">
+            <div class="slds-col slds-col--padded slds-size--1-of-1 slds-m-bottom_small">
+                <template for:each={data} for:item="items">
+                    <p key={items.id}>{items.Name}</p>
+                </template>
+            </div>
+        </div>
+    </template>
+    <template if:true={showAddItems}>
+        <div class="slds-wrap slds-grid">
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-size--1-of-5 slds-m-bottom_small">
+                <lightning-input name="woNumber" label="WO Number" onchange={handleOnChange} 
+                    value={workOrderItemsList.woNumber} disabled={isDisable} type="number">
+                </lightning-input>
+
+                <!-- <label>WO Number</label>
+            <c-custom-lookup obj-name="WorkOrderItem__c" name="woNumber" search-placeholder="WO Number" icon-name="standard:account" onlookupselected={handleAccountSelection}> </c-custom-lookup> -->
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-size--1-of-5 slds-m-bottom_small">
+                <lightning-input name="itemName" label="Item Name" onchange={handleOnChange} 
+                    value='' disabled={isDisable} >
+                </lightning-input>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-size--1-of-5 slds-m-bottom_small">
+                <lightning-input name="quantity" label="Quantity" onchange={handleOnChange} 
+                    value='' disabled={isDisable} type="number">
+                </lightning-input>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-5 slds-m-bottom_small">
+                <lightning-input name="description" label="Description" placeholder="Enter Description"
+                onchange={handleOnChange} value='' disabled={isDisable} >
+                </lightning-input>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-5 slds-m-bottom_small">
+                <lightning-combobox name="status" label="Status" options={statusPicklist}
+                value='' onchange={handleOnChange} disabled={isDisable}></lightning-combobox>
+            </div>
+            
+        </div>
+        <div class="slds-grid slds-wrap slds-p-vertical_medium">
+            <div class="slds-col slds-col--padded slds-size--1-of-1 slds-m-bottom_small slds-text-align_right">
+                <div class="btnSecm">
+                    <lightning-button class="btn btn-sec slds-m-right_small" label="CANCEL"></lightning-button>
+                    <lightning-button class="btn btn-pri" label="SAVE " onclick={workOrderItemSave}>
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <h2> Parent Component {getValueFromParent}</h2>
+      
+  
+</template>

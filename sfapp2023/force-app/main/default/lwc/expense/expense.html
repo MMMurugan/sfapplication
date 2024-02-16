@@ -1,0 +1,31 @@
+<template>
+
+    <div class="slds-grid slds-wrap create-expense">
+        <div class="slds-col--padded slds-size--1-of-3">
+            <lightning-input
+            name="enter-search"
+            label="Submitter"
+            type="search"
+            required
+            ></lightning-input>
+            <lightning-combobox name="PaymentMethod" value="" label="Payment Method" options={} placeholder="Select on Option" required ></lightning-combobox>
+            <lightning-input name="ExpenseReportDate" type="date" label="Expense Report Date" value="" placeholder="Select Date" required>
+            </lightning-input>
+        </div>
+        <div class="slds-col--padded slds-size--2-of-3">
+            <lightning-textarea  class="cus-textarea"
+            name="Description" 
+            label="Description" 
+            value=""
+        ></lightning-textarea>
+        <lightning-input name="BillableExpense" type="checkbox" label="BillableExpense" checked={} onchange={handleOnChange} >
+        </lightning-input>
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col--padded slds-size--1-of-1 text-right">
+            <lightning-button label="Add row" class="btn btn-pri slds-m-left_x-small"></lightning-button>
+        </div>
+    </div>
+    
+</template>

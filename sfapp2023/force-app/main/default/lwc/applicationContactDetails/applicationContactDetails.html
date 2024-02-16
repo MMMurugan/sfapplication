@@ -1,0 +1,275 @@
+<template>
+    <div class="slds-float_right">
+        <lightning-button variant="brand" label="ADD CONTACT" onclick={openAddContactModel}
+            class="btn btn-pri btn-topright">
+        </lightning-button>
+    </div>
+
+    <div class="application-table" if:false={noRecordsFound}>
+
+        <div class="slds-align_absolute-center">
+            <lightning-datatable class="custom-tbl" key-field="id" data={currentPageContactData} columns={columns}
+                hide-checkbox-column default-sort-direction={defaultSortDirection} sorted-direction={sortDirection}
+                sorted-by={sortedBy} onsort={onHandleSort} onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </div>
+        <!-- <div class="paginationPosition">
+            <c-common-pagination get-count={totalContactsCount} page={page} setsize={setPagination} perpage={perpage}
+                onprogressvaluechange={hanldeProgressValueChange}>
+            </c-common-pagination>
+        </div> -->
+
+
+    </div>
+
+    <div if:true={noRecordsFound} class="applicationStaff-screen">
+        <div class="text-center file-upload slds-p-vertical--xx-large">
+            <img class="icon-attachment" src={attachmentIcon} style="width:89px;" />
+            <p class="font-bold padtop10">No Contact Details Available</p>
+            <p class="subfont">Add Contact details by clicking Add Contact button</p>
+        </div>
+    </div>
+
+    <template if:true={openModel}>
+        <div class="demo-only" style="height:700px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small">
+                <div class="slds-modal__container">
+                    <div class="popborder">
+                        <header class="slds-modal__header">
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate fontweight">
+                                Contact Details</h2>
+                            <button class="close-button" title="Close" onclick={closeModel}>
+                            </button>
+                        </header>
+                        <div class="slds-modal__content  slds-p-around_medium overVisible" id="modal-content-id-1">
+                            <lightning-layout multiple-rows="true">
+                                <lightning-layout-item size="12">
+                                    <lightning-layout>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-combobox name="ContactType" label="Mode of Contact"
+                                                placeholder="Select Type" options={contactTypeOptions}
+                                                onchange={contactOnChange} value={contactDetails.ContactType__c}
+                                                required>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small custom-dropdwon">
+                                            <lightning-combobox name="Location" label="Location"
+                                                placeholder="Select Location" options={locationOptions}
+                                                onchange={contactOnChange} value={contactDetails.Location__c} required>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small custom-dropdwon">
+                                            <lightning-combobox name="Purpose" label="Purpose"
+                                                placeholder="Select Purpose" options={purposeOptions}
+                                                onchange={contactOnChange} value={contactDetails.Purpose__c} required>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="date" name="Date" class="dummyDate" label="Date"
+                                                placeholder="Select Date" onchange={contactOnChange}
+                                                value={contactDetails.Date__c} required>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="time" name="Time" label="Time" class="dummyTime"
+                                                placeholder="Select Time" onchange={contactOnChange}
+                                                value={contactDetails.Time__c} required>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input name="ContactName" label="Contact Name"
+                                                placeholder="Enter Name" onchange={contactOnChange}
+                                                value={contactDetails.ContactName__c} required>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-combobox name="ContactRole" label="Contact Role"
+                                                placeholder="Select Role" options={roleOptions}
+                                                onchange={contactOnChange} value={contactDetails.ContactRole__c}
+                                                required>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="phone" name="Phone" label="Phone"
+                                                placeholder="Enter Phone" onchange={contactOnChange}
+                                                value={contactDetails.Phone__c} maxlength="14" minlength="14">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="email" name="Email" label="Email"
+                                                placeholder="Enter Email" onchange={contactOnChange}
+                                                value={contactDetails.Email__c} maxlength="80"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                message-when-pattern-mismatch="Invalid Email">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                            <lightning-textarea name="Narrative" label="Narrative"
+                                                placeholder="Enter Narrative" onchange={contactOnChange}
+                                                value={contactDetails.Narrative__c}>
+                                            </lightning-textarea>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1">
+                                            <div class="btnSec pr-0">
+                                                <lightning-button class="btn btn-sec" onclick={cancelContactDetails}
+                                                    label="CANCEL"></lightning-button>
+                                                <lightning-button label="SAVE" class="btn btn-pri slds-m-left_x-small "
+                                                    onclick={saveContactDetails} disabled={disabled}></lightning-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+
+    <template if:true={viewModel}>
+        <div class="demo-only" style="height:700px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open slds-modal_small">
+                <div class="slds-modal__container">
+                    <div class="popborder">
+                        <header class="slds-modal__header">
+                            <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate fontweight">
+                                Contact Details</h2>
+                            <button class="close-button" title="Close" onclick={closeContactModel}>
+                            </button>
+                        </header>
+                        <div class="slds-modal__content  slds-p-around_medium overVisible" id="modal-content-id-2">
+                            <lightning-layout multiple-rows="true">
+                                <lightning-layout-item size="12">
+                                    <lightning-layout>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-combobox name="ContactType" label="Mode of Contact"
+                                                placeholder="Select Type" options={contactTypeOptions}
+                                                onchange={contactOnChange} value={contactDetails.ContactType__c}
+                                                required disabled>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small custom-dropdwon">
+                                            <lightning-combobox name="Location" label="Location"
+                                                placeholder="Select Location" options={locationOptions}
+                                                onchange={contactOnChange} value={contactDetails.Location__c} required
+                                                disabled>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small custom-dropdwon">
+                                            <lightning-combobox name="Purpose" label="Purpose"
+                                                placeholder="Select Purpose" options={purposeOptions}
+                                                onchange={contactOnChange} value={contactDetails.Purpose__c} required
+                                                disabled>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="date" name="Date" label="Date"
+                                                placeholder="Select Date" onchange={contactOnChange}
+                                                value={contactDetails.Date__c} required disabled>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="time" name="Time" label="Time" class="dummyTime"
+                                                placeholder="Select Time" onchange={contactOnChange}
+                                                value={contactDetails.Time__c} required disabled>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input name="ContactName" label="Contact Name"
+                                                placeholder="Enter Name" onchange={contactOnChange}
+                                                value={contactDetails.ContactName__c} required disabled>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-combobox name="ContactRole" label="Contact Role"
+                                                placeholder="Select Role" options={roleOptions}
+                                                onchange={contactOnChange} value={contactDetails.ContactRole__c}
+                                                required disabled>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="phone" name="Phone" label="Phone"
+                                                placeholder="Enter Phone" onchange={contactOnChange}
+                                                value={contactDetails.Phone__c} maxlength="14" minlength="14" disabled>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                            <lightning-input type="email" name="Email" label="Email"
+                                                placeholder="Enter Email" onchange={contactOnChange}
+                                                value={contactDetails.Email__c} maxlength="80"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                message-when-pattern-mismatch="Invalid Email" disabled>
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                            <lightning-textarea name="Narrative" label="Narrative"
+                                                placeholder="Enter Narrative" onchange={contactOnChange}
+                                                value={contactDetails.Narrative__c} disabled>
+                                            </lightning-textarea>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                   
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </div>
+                        <footer class="slds-modal__footer">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                                <div class="btnSec">
+                                    <lightning-button class="btn btn-sec" onclick={cancelContactDetails}
+                                        label="CANCEL"></lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+    
+    <template if:true={deleteModel}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-3" class="slds-modal slds-fade-in-open delete-popup">
+            <div class="slds-modal__container" style="width: 35%;">
+                <div class="popborder">
+                    <header class="slds-modal__header">
+                        <button class="close-button" title="Close" onclick={closeDeleteModal}></button>
+                    </header>
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                        <div class="slds-align_absolute-center delete-icon">
+                            <p>Are you sure you want to delete? </p>
+                        </div>
+                    </div>
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer slds-align_absolute-center">
+                        <button class="slds-button slds-button_text-destructive" onclick={handleDelete}>Yes</button>
+                        <button class="slds-button slds-button_outline-brand" onclick={closeDeleteModal}>No</button>
+                    </footer>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

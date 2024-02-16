@@ -1,0 +1,843 @@
+<template>
+    <div class="slds-grid slds-wrap" style="display: none;">
+        <div class="slds-col--padded slds-size--1-of-1  slds-m-bottom_medium">
+            <button class="slds-button slds-button_neutral"  title="Cancel"><i class="arrow left"></i> Back</button>
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap" style="display: none;">    
+        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-4">
+            <div class="theiaStickySidebar">
+                <div class="profile-sidebar">
+                    <div class="widget-profile pro-widget-content"> 
+                        <div class="profile-info-widget">
+                            <a href="#" class="booking-doc-img">
+                                <!-- <img src="../../staticresources/images/doctor-thumb-02.jpg" alt="User Image"> -->
+                                <img src={doctorimg} alt="User Image">
+                            </a>
+                            <div class="profile-det-info">
+                                <h3>Dr. James</h3>
+                                <div class="patient-details">
+                                    <h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+                                </div>
+                            </div>
+                            <div class="pro-content">                             
+                                <ul class="available-info">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i> Newyork, USA
+                                    </li>
+                                    <li>
+                                        <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                    </li>
+                                    <li>
+                                        <i class="far fa-money-bill-alt"></i> $50 - $300 <i class="fas fa-info-circle"
+                                            data-bs-toggle="tooltip" title="" data-bs-original-title="Lorem Ipsum"
+                                            aria-label="Lorem Ipsum"></i>
+                                    </li>
+                                </ul>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-2">
+                                        <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                    </div>
+                                    <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-2">
+                                        <a href="booking.html" class="btn book-btn">Book Now</a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_2-of-4">
+            <div class="searchDate">
+                <!-- <lightning-input type="date" class="date-input" label="Select Date" ></lightning-input> -->
+             <div class="search-input"> <lightning-input type="date" variant="label-hidden" style="bottom: 100%"></lightning-input></div> 
+                <lightning-button label="Search" title="Non-primary action" onclick={handleClick} class="slds-m-left_x-small btn-search btn-primary"></lightning-button>
+            </div>
+
+            <div class="card dash-cards">
+                <div class="card-header">
+                    <div class="today-appointment-title">
+                        <h5 class="mb-0">Today’s Appointments</h5>                        
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-center mb-0">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lightning-input type="date" variant="label-hidden" style="bottom: 100%"></lightning-input>
+
+                                        <div class="doc-slot-list">
+                                            10:00 am - 10:30 am                                           
+                                            </div>
+                                    </td>
+                                    <td>
+                                        <div class="consult-type d-flex flex-column">
+                                            <h6 class="mb-0">Online Consultation</h6>
+                                            <p class="mb-0"><img src={videoIcon} alt="">
+                                                Video Call</p>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="slds-button call-status" onclick={openModal}>
+                                          Book Appointment
+                                        </div>
+                                    </td>                                       
+                                  
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="doc-slot-list">
+                                            10:30 am - 11:00 am                                           
+                                            </div>
+                                    </td>
+                                    <td>
+                                        <div class="consult-type d-flex flex-column">
+                                            <h6 class="mb-0">Online Consultation</h6>
+                                            <p class="mb-0"><img src={videoIcon} alt="">
+                                                Video Call</p>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="slds-button call-status" onclick={openModal}>
+                                          Book Appointment
+                                        </div>
+                                    </td>  
+                                  
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="doc-slot-list">
+                                            11:00 am - 11:30 am                                           
+                                            </div>
+                                    </td>
+                                    <td>
+                                        <div class="consult-type d-flex flex-column">
+                                            <h6 class="mb-0">Online Consultation</h6>
+                                            <p class="mb-0"><img src={audioIcon} alt="">Audio Call</p>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="slds-button call-status" onclick={openModal}>
+                                          Book Appointment
+                                        </div>
+                                    </td>  
+                                   
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="doc-slot-list">
+                                            11:30 am - 12:00 pm                                           
+                                            </div>
+                                    </td>
+                                    <td>
+                                        <div class="consult-type d-flex flex-column">
+                                            <h6 class="mb-0">Online Consultation</h6>
+                                            <p class="mb-0"><img src={chatIcon} alt=""> Chat</p>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="slds-button call-status" onclick={openModal}>
+                                          Book Appointment
+                                        </div>
+                                    </td>  
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-4">
+            <div class="card dash-cards">
+                <div class="card-body">
+                    <div class="dash-top-content">
+                        <div class="circle-bar circle-bar2">
+                            <div class="circle-graph2" data-percent="75">
+                                <img src={appointentIcon} class="img-fluid" alt="patient">
+                            </div>
+                        </div>
+                        <div class="dash-widget-info">
+                            <h6>Total Appointements</h6>
+                            <h3>13</h3>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+<h3>New Doctor Search</h3>
+
+<section class="search-main">
+    <div class="search-main-inputs">
+        <div class="search-doctor">
+            <lightning-input type="text" variant="label-hidden" class="seaarch-input"></lightning-input>
+        </div>
+        <div class="search-location">
+            <lightning-input type="text" variant="label-hidden" class="seaarch-input"></lightning-input>
+        </div>
+        <div class="search-insure">
+            <lightning-input type="text" variant="label-hidden" class="seaarch-input"></lightning-input>
+        </div>
+    </div>
+    <div class="searchbtn">
+        <lightning-button label="Search" title="Non-primary action" onclick={handleClick} class="btn-search btn-primary"></lightning-button>
+    </div>
+</section>
+<section>
+    <lightning-tabset>
+        <lightning-tab label="All appointments">
+          <div class="list-short">
+              <span>Date</span>
+              <span>General Eye Consultation</span>
+              <span>Specialty</span>
+              <span>Availability</span>
+              <span>Distance</span>
+          </div>
+
+          <div class="slds-grid slds-wrap tabinner-main slds-m-vertical_medium">
+              <div class="tabinner-main-title">
+                <div class="slds-col--padded slds-size--1-of-2">
+                    <div class="subtitle"> <h3>360 providers</h3>  </div>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-2">
+                    <div class="weekdays"> Sat, Aug 13 – Fri, Aug 26 </div>
+                </div>
+              </div> 
+              <div class="doctorAppointments">
+                <div class="slds-grid slds-wrap docs-list">
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="slds-grid slds-wrap slds-m-vertical_medium doctor-card">
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4">
+                                <div class="docinfo">
+                                    <img src="https://d2uur722ua7fvv.cloudfront.net/photos/Dr-Lina-Cawog-OD-180182-circle_medium__v2__.png" >
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-4">
+                                <div class="doctor-card-info">
+                                    <h2 class="doctor-card-info-name">Dr. Lina Cawog, OD</h2>
+                                    <div class="doctor-card-info-specialty">Optometrist</div>
+                                    <div class="doctor-card-info-location">Eyes On Second <br/> 170 2nd Ave, New York, NY 10003</div>
+                                    <!-- <h2 class="doctor-card-info-rating">Dr. Lina Cawog, OD</h2> -->
+                                    <h2 class="doctor-card-info-provider-qualities">New patient appointments • Highly recommended • Excellent wait time</h2>  
+                                    
+                                    <a href="" class="doctor-link-container">See if they're in network</a>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="appointments-slots">
+                            <div class="timesgrid" onclick={bookappointmentModal}>
+                                <div class="timesgrid-day">Sat</div>
+                                <div class="timesgrid-date">Aug 13</div>
+                                <div class="available-slot"><span class="slotno">No</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            
+                        </div>
+                        <a href="" class="doctor-link-container">View all availability</a>
+                    </div>
+                </div>                
+                <div class="slds-grid slds-wrap docs-list">
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="slds-grid slds-wrap slds-m-vertical_medium doctor-card">
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4">
+                                <div class="docinfo">
+                                    <img src="https://d2uur722ua7fvv.cloudfront.net/photos/Dr-Lina-Cawog-OD-180182-circle_medium__v2__.png" >
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-4">
+                                <div class="doctor-card-info">
+                                    <h2 class="doctor-card-info-name">Dr. Lina Cawog, OD</h2>
+                                    <div class="doctor-card-info-specialty">Optometrist</div>
+                                    <div class="doctor-card-info-location">Eyes On Second <br/> 170 2nd Ave, New York, NY 10003</div>
+                                    <!-- <h2 class="doctor-card-info-rating">Dr. Lina Cawog, OD</h2> -->
+                                    <h2 class="doctor-card-info-provider-qualities">New patient appointments • Highly recommended • Excellent wait time</h2>  
+                                    
+                                    <a href="" class="doctor-link-container">See if they're in network</a>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="appointments-slots">
+                            <div class="timesgrid" onclick={bookappointmentModal}>
+                                <div class="timesgrid-day">Sat</div>
+                                <div class="timesgrid-date">Aug 13</div>
+                                <div class="available-slot"><span class="slotno">No</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            
+                        </div>
+                        <a href="" class="doctor-link-container">View all availability</a>
+                    </div>
+                </div>                
+                <div class="slds-grid slds-wrap docs-list">
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="slds-grid slds-wrap slds-m-vertical_medium doctor-card">
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4">
+                                <div class="docinfo">
+                                    <img src="https://d2uur722ua7fvv.cloudfront.net/photos/Dr-Lina-Cawog-OD-180182-circle_medium__v2__.png" >
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-4">
+                                <div class="doctor-card-info">
+                                    <h2 class="doctor-card-info-name">Dr. Lina Cawog, OD</h2>
+                                    <div class="doctor-card-info-specialty">Optometrist</div>
+                                    <div class="doctor-card-info-location">Eyes On Second <br/> 170 2nd Ave, New York, NY 10003</div>
+                                    <!-- <h2 class="doctor-card-info-rating">Dr. Lina Cawog, OD</h2> -->
+                                    <h2 class="doctor-card-info-provider-qualities">New patient appointments • Highly recommended • Excellent wait time</h2>  
+                                    
+                                    <a href="" class="doctor-link-container">See if they're in network</a>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="appointments-slots">
+                            <div class="timesgrid" onclick={bookappointmentModal}>
+                                <div class="timesgrid-day">Sat</div>
+                                <div class="timesgrid-date">Aug 13</div>
+                                <div class="available-slot"><span class="slotno">No</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            
+                        </div>
+                        <a href="" class="doctor-link-container">View all availability</a>
+                    </div>
+                </div>                
+                <div class="slds-grid slds-wrap docs-list">
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="slds-grid slds-wrap slds-m-vertical_medium doctor-card">
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4">
+                                <div class="docinfo">
+                                    <img src="https://d2uur722ua7fvv.cloudfront.net/photos/Dr-Lina-Cawog-OD-180182-circle_medium__v2__.png" >
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-4">
+                                <div class="doctor-card-info">
+                                    <h2 class="doctor-card-info-name">Dr. Lina Cawog, OD</h2>
+                                    <div class="doctor-card-info-specialty">Optometrist</div>
+                                    <div class="doctor-card-info-location">Eyes On Second <br/> 170 2nd Ave, New York, NY 10003</div>
+                                    <!-- <h2 class="doctor-card-info-rating">Dr. Lina Cawog, OD</h2> -->
+                                    <h2 class="doctor-card-info-provider-qualities">New patient appointments • Highly recommended • Excellent wait time</h2>  
+                                    
+                                    <a href="" class="doctor-link-container">See if they're in network</a>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="appointments-slots">
+                            <div class="timesgrid" onclick={bookappointmentModal}>
+                                <div class="timesgrid-day">Sat</div>
+                                <div class="timesgrid-date">Aug 13</div>
+                                <div class="available-slot"><span class="slotno">No</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            
+                        </div>
+                        <a href="" class="doctor-link-container">View all availability</a>
+                    </div>
+                </div>                
+                <div class="slds-grid slds-wrap docs-list">
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="slds-grid slds-wrap slds-m-vertical_medium doctor-card">
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4">
+                                <div class="docinfo">
+                                    <img src="https://d2uur722ua7fvv.cloudfront.net/photos/Dr-Lina-Cawog-OD-180182-circle_medium__v2__.png" >
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-4">
+                                <div class="doctor-card-info">
+                                    <h2 class="doctor-card-info-name">Dr. Lina Cawog, OD</h2>
+                                    <div class="doctor-card-info-specialty">Optometrist</div>
+                                    <div class="doctor-card-info-location">Eyes On Second <br/> 170 2nd Ave, New York, NY 10003</div>
+                                    <!-- <h2 class="doctor-card-info-rating">Dr. Lina Cawog, OD</h2> -->
+                                    <h2 class="doctor-card-info-provider-qualities">New patient appointments • Highly recommended • Excellent wait time</h2>  
+                                    
+                                    <a href="" class="doctor-link-container">See if they're in network</a>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                        <div class="appointments-slots">
+                            <div class="timesgrid" onclick={bookappointmentModal}>
+                                <div class="timesgrid-day">Sat</div>
+                                <div class="timesgrid-date">Aug 13</div>
+                                <div class="available-slot"><span class="slotno">No</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid noavail-slot">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            <div class="timesgrid">
+                                <div class="timesgrid-day">Fri</div>
+                                <div class="timesgrid-date">Aug 23</div>
+                                <div class="available-slot"><span class="slotno">12</span> Appts</div>
+                            </div>
+                            
+                        </div>
+                        <a href="" class="doctor-link-container">View all availability</a>
+                    </div>
+                </div>                
+                            
+              </div>           
+        </div>
+
+          
+        </lightning-tab>
+        <lightning-tab label="In-person" title="2nd tab extended title">
+            Two Content !
+        </lightning-tab>
+        <lightning-tab label="Video visit">
+            Three Content !
+        </lightning-tab>
+    </lightning-tabset>
+</section>
+
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Enter Patients Details</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-2">
+                            <lightning-input type="text" label="Enter First Name"></lightning-input>
+                        </div>
+                        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-2">
+                            <lightning-input type="text" label="Enter Last Name"></lightning-input>
+                        </div>
+                        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-2">
+                            <lightning-input type="text" label="Enter Your Email"></lightning-input>
+                        </div>
+                        <div class="slds-col--padded slds-size--1-of-1  slds-large-size_1-of-2">
+                            <lightning-input type="text" label="Enter Your Address"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <!-- <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button> -->
+                    <lightning-button label="Cancel" title="submit action" onclick={closeModal} class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button label="Ok" title="submit action" onclick={submitDetails} class="slds-m-left_x-small btn-primary"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <template if:true={appointmentModal}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Book Your Appointments </h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-horizantal_medium" id="modal-content-id-2">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col--padded slds-size--1-of-1 docinfo-main">
+                            <div class="docinfo">
+                                <img src="https://d2uur722ua7fvv.cloudfront.net/photos/Dr-Lina-Cawog-OD-180182-circle_medium__v2__.png" >
+                            </div>
+                            <div class="doctor-card-info">
+                                <h2 class="doctor-card-info-name">Dr. Lina Cawog, OD</h2>
+                                <div class="doctor-card-info-specialty">Optometrist</div>
+                                <div class="doctor-card-info-location">Eyes On Second <br/> 170 2nd Ave, New York, NY 10003</div>  
+                                <p class="slds-p-top_medium">Choose a time with Dr. Visanji that works for you</p>                             
+                            </div> 
+                        </div>
+                        <div class="availability-main">
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Tue, Sep 27</div>
+                                <div class="availability-time">
+                                    <span>10:00 am</span>
+                                    <span>10:30 am</span>
+                                    <span>11:00 am</span>
+                                    <span>11:30 am</span>
+                                    <span>12:00 pm</span>
+                                    <span>12:30 pm</span>
+                                    <span>01:00 pm</span>
+                                    <span>More </span>
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Wed, Sep 28</div>
+                                <div class="availability-time">
+                                    <span>10:00 am</span>
+                                    <span>10:30 am</span>
+                                    <span>11:00 am</span>
+                                    <span>11:30 am</span>
+                                    <span>12:00 pm</span>
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Thu, Sep 29</div>
+                                <p class="notimeslot">No availability</p>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Thu, Sep 29</div>
+                                <div class="availability-time">
+                                    <span>10:00 am</span>
+                                    <span>10:30 am</span>
+                                    <span>11:00 am</span>
+                                    <span>11:30 am</span>
+                                    <span>12:00 pm</span>
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Thu, Sep 29</div>
+                                <div class="availability-time">
+                                    <span>10:00 am</span>
+                                    <span>10:30 am</span>
+                                    <span>11:00 am</span>
+                                    <span>11:30 am</span>
+                                    <span>12:00 pm</span>
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Thu, Sep 29</div>
+                                <div class="availability-time">
+                                    <span>10:00 am</span>
+                                    <span>10:30 am</span>
+                                    <span>11:00 am</span>
+                                    <span>11:30 am</span>
+                                    <span>12:00 pm</span>
+                                </div>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 availability">
+                                <div class="availability-day">Thu, Sep 29</div>
+                                <div class="availability-time">
+                                    <span>10:00 am</span>
+                                    <span>10:30 am</span>
+                                    <span>11:00 am</span>
+                                    <span>11:30 am</span>
+                                    <span>12:00 pm</span>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+              
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

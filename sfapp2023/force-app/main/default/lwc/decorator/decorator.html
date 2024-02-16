@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Decorators Example">
+
+        <p> {name} {phone}</p>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                <h2>@track </h2>
+                <div class="slds-m-around_medium">
+                    <p>Message, {inputMessage}</p>
+                    <lightning-input label="Message" value={inputMessage} onchange={handleChange}></lightning-input>
+                </div>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                <lightning-input type="text" label="Enter some text"></lightning-input>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                <lightning-input type="text" label="Enter some text"></lightning-input>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                <lightning-button label="On Click" title="Primary Button" onclick={handleClick} class="btn btn-sec slds-m-left_x-small"></lightning-button>
+            </div>
+        </div>
+
+        <br/>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+               <template for:each={ListItems} for:item="item" for:index="index">
+                <li key={item.id}>
+                    {item.name}
+                    {item.title}
+                </li>
+               </template>
+            </div>
+        </div>
+
+       
+    </lightning-card>
+</template>

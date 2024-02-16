@@ -1,0 +1,85 @@
+<template>
+    <lightning-button onclick={generateData} label="Generate PDF"></lightning-button>
+
+    <lightning-button onclick={generateDataPdf} label="Generate PDF div"></lightning-button>
+
+    <section class="invoice" id="pdf">
+        <section class="header">
+          <table>
+            <tr>
+              <td>Quinlan</td>
+              <td class="title-text text-align-right">INVOICE</td>
+            </tr>
+          </table>
+        </section>
+        <section class="main">
+          <table class="bill-info">
+            <tr>
+              <td>
+                BILL TO <br />
+                [ClientName] <br />
+                [ClientAddress1] <br />
+                [ClientAddress2]
+              </td>
+              <td>
+                Invoice: #0000 <br />
+                Date: 12/02/2022 <br />
+                Due Date: 29/04/2022
+              </td>
+              <td>
+                <p>
+                  Quinlan Partners <br />
+                  2805 2nd Ave S Ste 200 <br />
+                  Birmingham, AL 35233<br />
+                  (202) 991-7845<br />
+                  info@quinlan.io
+                </p>
+              </td>
+            </tr>
+          </table>
+    
+          <table class="rateinfo">
+            <thead>
+              <tr>
+                <th>Activity</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead>  
+            <tbody class="activity-info">
+              <tr>
+                <td>
+                  Activity Name<br />
+                  Activity Description
+                </td>
+                <td>
+                  10
+                </td>
+                <td>
+                  120.00
+                </td>
+                <td>
+                  120.00
+                </td>
+              </tr>
+            </tbody> 
+            <tfoot>
+                <tr>
+                  <td class="text-align-right baltext" colspan="4">
+                    <span >BALANCE DUE:</span> <span>USD $2310.00</span>
+                  </td>
+                </tr>
+            </tfoot>   
+            
+          </table>
+         
+        </section>
+        <section class="footer">
+          <p>FEIN: 45-1678031 | Please make checks payable to: Quinlan Partners, LLC</p>
+          <div class="footer-img">
+          </div>
+        </section>
+      </section>
+
+</template>

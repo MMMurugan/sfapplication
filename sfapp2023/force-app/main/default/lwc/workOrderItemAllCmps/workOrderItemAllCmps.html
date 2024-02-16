@@ -1,0 +1,22 @@
+<template>
+    <lightning-tabset active-tab-value={activeTab}>
+        <lightning-tab label="Work Order Form" value="1" onactive={handleActive}>
+            <c-work-orders ongetwoinfo={getParentValue}></c-work-orders>
+        </lightning-tab>
+        <lightning-tab label="Work Order Items" value="2" onactive={handleActive}>
+           <c-work-order-items parentinfomm={parentinfo}></c-work-order-items>
+        </lightning-tab>
+        <lightning-tab label="Parent Child Communication" value="3" onactive={handleActive}>
+            <c-parent-child-communication mmvalue={parentinfo}></c-parent-child-communication>           
+        </lightning-tab>
+        <lightning-tab label="Child Parent Communication" value="4" onactive={handleActive}>
+            <c-child-parent-communication></c-child-parent-communication>
+        </lightning-tab>
+    </lightning-tabset>
+
+
+    <c-upcoming-posts></c-upcoming-posts>
+
+    <br/>
+    <c-murugan></c-murugan>
+</template>

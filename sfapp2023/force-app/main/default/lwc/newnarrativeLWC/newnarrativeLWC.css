@@ -1,0 +1,44 @@
+.sec-reportDetail {
+    display: inline-block;
+    width: 100%;
+}
+
+.col-5 {
+    display: inline-block;
+    width: 20%;
+    margin: 0 10px;
+}
+.mcol{padding: 15px;}
+.mcol > label{display: none;}
+.slds-form-element__label{display: none;}
+
+.btn {
+    padding: 5px 12px;
+    line-height: 29px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn-pri{
+    border: solid 1px #f0a141;
+    background-color: #fff;
+    color: #f0a141;
+    }
+.btn-sec {
+    color: #fff;
+    background-color: #f0a141;    
+}
+.secMain{border:1px solid #dddbda; border-radius: 4px; padding:15px;}
+.addPerson{line-height: 20px; margin-top: 2px;}
+.pl-10{padding-left: 10px;}
+.ml-10{margin-left: 10px;}
+.secHeader{font-size: 14px;color: #f0a141; }
+.txt-right{text-align: right;}
+.mb-10{margin-bottom: 10px;}
+.button123123{background-color: aqua;}
+[class*=slds-size_], [class*=slds-size--]{height: 100px !important;}

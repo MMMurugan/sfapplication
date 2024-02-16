@@ -1,0 +1,41 @@
+<template>
+    <section class="main-sec">
+        <div class="container">
+            <div class="slds-grid slds-wrap slds-grid_align-center">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1">
+                    <!-- <template if:true={isBreadcrumb}>
+                        <ul class="cus_breadcrumb">
+                            <li><a  onclick={backtoDashboard}> Dashboard</a></li>
+                        </ul>
+                      </template> -->
+                      <template if:true={isLwcRecipes}>                       
+                        <c-lwc-recipes onbacktodashboard={handleHomePage}></c-lwc-recipes>
+                      </template>
+                      <template if:true={isCssRecipes}>                      
+                        <c-css-recipes onbacktodashboard={handleHomePage}></c-css-recipes>
+                      </template>
+                      <template if:true={isDashboard}>
+                        <ul class="feature-lists">
+                            <li class="features" onclick={navigatetoLwc}>
+                                <!-- <img src="https://www.devsnews.com/template/micoach/img/icon/bootstrap.png" alt=""> -->
+                                <h2>LWC</h2>
+                                <h4>Lightning Web Component</h4>
+                            </li>
+                            <li class="features" onclick={navigatetoCss}>
+                                <h2>SLDS</h2>
+                                <h4>Lightning Design System</h4>
+                            </li>
+                            <li class="features">
+                                <img src="https://www.devsnews.com/template/micoach/img/icon/bootstrap.png" alt="">
+                                <h4>bootstrap v4</h4>
+                            </li>
+                            
+                        </ul>
+                      </template>
+                   
+                </div>
+            </div>
+        </div>
+    </section>   
+    
+</template>

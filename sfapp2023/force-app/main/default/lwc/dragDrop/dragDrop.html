@@ -1,0 +1,19 @@
+<template>
+    <div class="container">
+        <div class="sec-dragdrop">
+        <template for:each={ElementList} for:item="Elements">           
+                <div
+                    key={Elements.Id}
+                        style="padding:10px;background-color:#a6a5a3;"
+                        class="Items"
+                        onchange={Change}
+                        draggable="true" 
+                        ondrop={Drop}
+                        ondragstart={DragStart}
+                        ondragover={DragOver}>
+                        {Elements}
+        </div>           
+        </template>
+    </div>
+    </div>
+</template>

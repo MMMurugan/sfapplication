@@ -1,0 +1,32 @@
+<template>
+    <lightning-card  title="LDS Account Record Creation" icon-name="standard:record">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Name" onchange={handleChange} class="slds-m-bottom_small"></lightning-input>
+            <lightning-input label="Phone" onchange={handleChange} class="slds-m-bottom_small"></lightning-input>
+            <lightning-button label="Create Account" variant="brand" onclick={createAccount}></lightning-button>
+        </div>
+    </lightning-card>
+
+    <br/><br/> <br/><br/>
+
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Phone</td>
+            <td>Site</td>
+            <td>Action</td>       
+        </tr>
+        <template for:each={account.data} for:item = "acc">
+            <tr key={acc.Id} >
+                <td>{acc.Id}</td>
+                <td>{acc.Name}</td>
+                <td>{acc.Phone}</td>
+                <td>{acc.Site}</td>
+                <td>
+                    <lightning-button label="Update" variant="brand" value={acc.Id} onclick={updateAccount}></lightning-button>
+                </td>
+            </tr>
+        </template>
+    </table>
+</template>

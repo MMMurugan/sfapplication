@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="PDF Comparison">
+        <div>
+            <lightning-input type="file" accept=".pdf" onchange={handleFile1Change}></lightning-input>
+            <div>{file1} ? 'File 1: ' + file1.name : 'No file selected for File 1'</div>
+        </div>
+        <div>
+            <lightning-input type="file" accept=".pdf" onchange={handleFile2Change}></lightning-input>
+            <div>{file2} ? 'File 2: ' + file2.name : 'No file selected for File 2'</div>
+        </div>
+        <lightning-button label="Compare" onclick={handleCompare}></lightning-button>
+        <template if:true={comparisonResults}>
+            <lightning-card title="Comparison Results">
+                <lightning-datatable
+                    key-field="id"
+                    data={formattedComparisonResults}
+                    columns={columns}
+                ></lightning-datatable>
+            </lightning-card>
+        </template>
+    </lightning-card>
+</template>

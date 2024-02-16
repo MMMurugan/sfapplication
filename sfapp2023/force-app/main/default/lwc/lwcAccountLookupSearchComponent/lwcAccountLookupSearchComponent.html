@@ -1,0 +1,68 @@
+<template>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_4-of-4">
+                <div>
+    
+    
+                    <template if:true={validation.flag}>
+    
+    
+                        <div class="slds-form-element slds-has-error">
+                            <div class="slds-form-element__control">
+    
+    
+                                    <template if:true={validation.disable}>
+                                        <lightning-input variant="label-hidden" 
+                                            label="Search Record" value={searchKey} type="search"
+                                            onchange={handleChange} placeholder={lookupplaceholder}  onkeyup={handleKeyPress} aria-invalid="true" disabled >
+                                        </lightning-input>
+                                    </template>
+    
+    
+                                    <template if:false={validation.disable}>
+                                        <lightning-input variant="label-hidden" 
+                                            label="Search Record" value={searchKey} type="search"
+                                            onchange={handleChange} placeholder={lookupplaceholder}  onkeyup={handleKeyPress} aria-invalid="true" >
+                                        </lightning-input>
+                                    </template>
+    
+    
+    
+    
+                            </div>
+                            <div class="slds-form-element__help" id="form-error-01">{validation.msg}</div>
+                        </div>
+    
+    
+                    </template>
+    
+    
+    
+                    <template if:false={validation.flag}>
+    
+    
+                        <template if:true={validation.disable}>
+                            <lightning-input variant="label-hidden" 
+                                label="Search Record" value={searchKey} type="search"
+                                onchange={handleChange} placeholder={lookupplaceholder}  onkeyup={handleKeyPress} disabled={validation.disable} >
+                            </lightning-input>
+                        </template>
+                        
+                        <template if:false={validation.disable}>
+                            <lightning-input variant="label-hidden" 
+                                label="Search Record" value={searchKey} type="search"
+                                onchange={handleChange} placeholder={lookupplaceholder}  onkeyup={handleKeyPress}>
+                            </lightning-input>
+                        </template>
+    
+    
+    
+    
+                    </template>
+    
+    
+    
+                </div>
+            </div>
+        </div>
+</template>

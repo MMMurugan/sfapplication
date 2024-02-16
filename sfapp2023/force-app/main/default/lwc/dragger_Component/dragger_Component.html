@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Drag Account">
+        <template for:each={accounts.data} for:item="account">
+            <div class="slds-m-top_small" key={account.Id} draggable="true" data-item={account.Id} ondragstart={handleDragStart}>
+                <lightning-tile label={account.Name} type="media">
+                    <p>Type: {account.Type}</p>
+                </lightning-tile>
+            </div>
+        </template>
+    </lightning-card>
+</template>

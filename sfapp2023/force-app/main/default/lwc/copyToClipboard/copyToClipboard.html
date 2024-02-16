@@ -1,0 +1,24 @@
+<template>
+    
+    <lightning-datatable data={contactData} 
+        columns={columns} 
+        key-field="Id"
+        hide-checkbox-column="true"
+        onrowaction={handleRowAction}
+         style="height:250px;"
+    >
+   </lightning-datatable>
+
+    <br/><br/>
+
+
+
+<!-- <c-copy-to-clipboard-util></c-copy-to-clipboard-util> -->
+	<lightning-card title="Copy to Clipboard">
+		<textarea class="slds-textarea"></textarea>
+		<h1>See what was copied</h1>
+		<textarea class="slds-textarea"></textarea>
+		<button slot="actions" class="slds-button slds-button_brand" onclick={copyText}>Do Copy</button>
+	</lightning-card>
+
+</template>

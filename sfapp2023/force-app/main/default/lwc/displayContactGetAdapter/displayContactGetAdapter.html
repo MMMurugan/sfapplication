@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <lightning-input type="text" name="contactId" label="Enter Contact Id" value={contactRecordId} onchange={contactRecordIdChange} > </lightning-input>                     
+        </div>  
+    </div>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td>{contactRecord.Title}
+
+                        <lightning-input type="text" value={Title}></lightning-input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><lightning-input type="text" value={Name}></lightning-input></td>
+                </tr>
+                <tr>
+                    <td>Phone No</td>
+                    <td><lightning-input type="text" value={Phone}></lightning-input></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><lightning-input type="text" value={Email}></lightning-input></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</template>

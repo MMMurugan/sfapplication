@@ -1,0 +1,10 @@
+<template>
+    
+    <lightning-card title="data table contact list">
+
+        <lightning-datatable columns={columns} data={contactList.data} key-field="id" onrowselection={selectRows}></lightning-datatable>
+        <div class="slds-size_1-of-1 slds-medium-size--1-of-2 slds-col--padded slds-p-top_small">
+            <lightning-button label="Delete Contacts" onclick={deleteSelectedRecords} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

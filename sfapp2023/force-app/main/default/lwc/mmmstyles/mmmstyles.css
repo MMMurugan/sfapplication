@@ -1,0 +1,27 @@
+:host{
+    --background-color :rgb(136, 255, 0);
+}
+
+.main-content{height: 100vh; background-color: aliceblue; overflow: hidden;}
+/* Apply an existing CSS class */
+.red-background {
+    background-color: green;
+  }
+
+  .dynamic-background {
+    background-color: var(--background-color, red);
+}
+
+
+.droparea{
+  border: 1px solid black;
+  position: relative;
+  margin: 3px;
+  /* min-height: 4em; */
+}
+.droparea .row {
+  position: relative;
+  border: 1px solid red;
+  padding: 3px;
+  margin: 3px;
+}

@@ -1,0 +1,19 @@
+<template>
+    <div class="dashboard-cards">
+        <div class="card" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-1">
+            <h2>Pending Expense Reports</h2>
+        </div>
+        <div class="card" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-2">
+            <h2>Total Expense Reports</h2>
+        </div>
+        <div class="card" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-3">
+            <h2>Approved Expense Reports</h2>
+        </div>
+        <div class="card" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-4">
+            <h2>Returned Expense Reports</h2>
+        </div>
+        <div class="card" for:index="index" draggable="true" ondragstart={handleDragStart} data-id="id-5">
+            <h2>Rejected Expense Reports</h2>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<!-- comparePdfDocuments.html -->
+<template>
+    <lightning-card title="PDF Document Comparison">
+        <div>
+            <lightning-input type="file" label="Select PDF File 1" accept=".pdf" onchange={handleFile1Change}></lightning-input>
+            <div if:true={file1Name}>Selected File 1: {file1Name}</div>
+            <lightning-input type="file" label="Select PDF File 2" accept=".pdf" onchange={handleFile2Change}></lightning-input>
+            <div if:true={file2Name}>Selected File 2: {file2Name}</div>
+            <lightning-button label="Compare PDFs" onclick={comparePDFs}></lightning-button>
+        </div>
+        <div>
+            <p>{result}</p>
+        </div>
+    </lightning-card>
+</template>

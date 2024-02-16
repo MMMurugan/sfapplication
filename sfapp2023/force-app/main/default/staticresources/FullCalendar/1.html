@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='./core/main.css' rel='stylesheet' />
+<link href='./daygrid/main.css' rel='stylesheet' />
+<link href='./timegrid/main.css' rel='stylesheet' />
+<script src='./core/main.js'></script>
+<script src='./daygrid/main.js'></script>
+<script src='./timegrid/main.js'></script>
+<script src='./interaction/main.js'></script>
+<script src='./resource-common/main.min.js'></script>
+<script src='./resource-daygrid/main.min.js'></script>
+<script src='./interaction/main.min.js'></script>
+<script src='./jquery.min.js'></script>
+<link rel="stylesheet" href="./bootstrap/main.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src='./resource-timegrid/main.min.js'></script>
+
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'interaction','resourceTimeGrid' ],
+            timeZone: 'UTC',
+            allDaySlot: false,
+            defaultView: 'resourceTimeGridDay',
+            header: {
+                left: '',
+                center: '',
+                right: ''
+            },
+            resources:  [
+      { id: 'a', title: 'Room A' },
+      { id: 'b', title: 'Room B' },
+	  { id: 'a', title: 'Room c' },
+      { id: 'b', title: 'Room D' }
+    ],
+            editable: true, // To move the events on calendar - TODO 
+            selectable: true, //To select the period of time
+            eventLimit: true, // allow "more" link when too many events
+			dateClick: function(info) {
+                $('#createEventModal').modal('show');
+              },
+			  
+             events: [
+              {resourceId:"a",title:"Marimuthu",startTime:"17:30:00.000Z",endTime:"20:30:00.000Z",start:"2020-11-23", description: 'second description',second:'I am fine'},
+			  {resourceId:"a",title:"Sundar",startTime:"12:30:00.000Z",endTime:"14:00:00.000Z",start:"2020-11-23", description: 'second description',second:'I am fine'},
+			  {resourceId:"a",title:"Hithesh",startTime:"10:30:00.000Z",endTime:"11:30:00.000Z",start:"2020-11-23", description: 'second description',second:'I am fine'},
+			  {resourceId:"a",title:"Chaarvi",startTime:"8:30:00.000Z",endTime:"9:30:00.000Z",start:"2020-11-23", description: 'second description',second:'I am fine'}
+			  ],
+        
+		eventRender: function(info) { 
+		console.log(info.el);
+           $(info.el).find('.fc-title').append("<br/>" + info.event.extendedProps.description+"<br/>" +info.event.extendedProps.second); 
+        } 
+         
+        });
+
+        calendar.render();
+        });
+</script>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+  font-size: 14px;
+}
+#calendar {
+  max-width: 900px;
+  margin: 40px auto;
+}
+</style>
+</head>
+<body>
+ 	<div> 
+    <br /><br />
+    <div class="container">
+        <div id='calendar' style="background:#ECF0F1"></div>
+    </div>
+</div>
+
+<!--Add event modal-->
+<div id="createEventModal"  class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">close</span></button>
+                <h4>Add an Event</h4>
+            </div>
+            <div id="modalBody" class="modal-body">
+               <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Event Name" id="eventName">
+                </div>
+
+                <div class="form-group form-inline">
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" id="eventDueDate" class="form-control" placeholder="Due Date mm/dd/yyyy">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control" type="text" rows="4" placeholder="Event Description" id= "eventDescription"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <div style="display:none;" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">close</span></button>
+                <h4>Add an Event</h4>
+            </div>
+            <div id="modalBody" class="modal-body">
+               <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Event Name">
+                </div>
+
+                <div class="form-group form-inline">
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control" placeholder="Due Date mm/dd/yyyy">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control" type="text" rows="4" placeholder="Event Description"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

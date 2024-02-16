@@ -1,0 +1,232 @@
+<template>
+    
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-col--padded slds-size_1-of-1">
+                <lightning-tabset>
+                    <!-- Gride System -->
+                    <lightning-tab label="Grid System">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-combobox
+                                    name="progress"
+                                    label="Status"
+                                    value={optionsvalue}
+                                    placeholder="Select Progress"
+                                    options={options}
+                                    onchange={handleChange_dropdown} >
+                                </lightning-combobox>
+                                <p>Selected value is: {optionsvalue}</p>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                               
+                                <div class="row">
+                                    <h2 class="header">Basic Examples</h2>
+                                    <lightning-textarea name="input1" label="Enter some text" ></lightning-textarea>                                   
+                                </div>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-col--padded slds-p-top_x-small slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_1-of-4 slds-x_large-size_1-of-6">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                        </div>                        
+                            <br/>
+                            <br/>                    
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col--padded slds-size--1-of-1">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--5-of-6 slds-large-size--8-of-12">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-6 slds-large-size--4-of-12">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3">
+                                <lightning-input type="text" label="Enter some text"></lightning-input>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-3">
+                                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                                    <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-1 slds-large-size--1-of-2">
+                                        <lightning-input type="text" label="Enter some text"></lightning-input>
+                                    </div>
+                                    <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-1 slds-large-size--1-of-2">
+                                        <lightning-input type="text" label="Enter some text"></lightning-input>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br/><br/>
+
+                        <p> Label hide</p>
+
+                        <lightning-input type="text" variant="label-hidden" label="noLabel" name="noLabel" value="noLabel"> </lightning-input>
+ 
+                        
+
+                    </lightning-tab>    
+
+                    <!-- Button Styles -->   
+                    <lightning-tab label="Buttons">    
+                        <div class="slds-grid slds-wrap slds-m-top--x-small">
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">
+                                <p>Link  Button</p>
+                                <lightning-button variant="base" label="Base" title="Link  Button" onclick={handleClick} class="btn btn-link"></lightning-button>                        
+                                </div>
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">
+                                <p>Primary  Button</p>
+                                <lightning-button label="Neutral" title="Primary Button" onclick={handleClick} class="btn btn-pri slds-m-left_x-small"></lightning-button>
+                                 </div>
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">                              
+                                <p>Secondary  Button</p>
+                                <lightning-button label="Neutral" title="Secondary  Button" onclick={handleClick} class="btn btn-sec slds-m-left_x-small"></lightning-button>
+                            </div>
+                        </div>
+
+                        <div class="slds-grid slds-wrap slds-m-top--large">
+                            <div class="slds-col slds-col--padded slds-size_1-of-2">
+                                <div class="slds-grid slds-wrap slds-m-top--x-small">
+                                    <div class="slds-col slds-col--padded slds-size_1-of-2">
+                                        <h2> Radio Button Default</h2>
+                                        <lightning-radio-group name="radioGroup1"
+                                        label="Radio Group"
+                                        options={options1}
+                                        value={defaultRadio}
+                                        type="radio"></lightning-radio-group>
+                                    </div>
+                                    <div class="slds-col slds-col--padded slds-size_1-of-2">
+                                        <h2> Radio Button Horizontal</h2>                                        
+                                        <lightning-radio-group name="radioGroup"
+                                        class="radio-horizontal"
+                                        label="Radio Group"
+                                        options={options2}
+                                        value={radioHorizontal}
+                                        type="radio"></lightning-radio-group>
+                                    </div>
+                                </div>                                
+                                
+                            </div>
+                            
+                            <div class="slds-col slds-col--padded slds-size_1-of-2">                                
+                                <div class="slds-grid slds-wrap slds-m-top--x-small">
+                                    <div class="slds-col slds-col--padded slds-size_1-of-2">
+                                        <h2> Checkbox Default</h2>                
+                                        <lightning-checkbox-group name="Checkbox Group" 
+                                        label="Checkbox Group"
+                                        options={checkbox_options}
+                                        value={Checkbox1}
+                                        onchange={handleChange}></lightning-checkbox-group>
+                                    </div>
+                                    <div class="slds-col slds-col--padded slds-size_1-of-2">
+                                        <!-- Checkbox Box Horizontal -->                 
+                                        <h2>Checkbox Horizontal</h2>                              
+                                        <lightning-checkbox-group name="Checkbox Group" class="checkbox-horizontal"
+                                        label="Checkbox Group"
+                                        options={checkbox_options2}
+                                        value={Checkbox2}
+                                        onchange={handleChange}></lightning-checkbox-group>
+                                    </div>
+                                </div>                             
+                            </div>
+                        </div>                       
+                    </lightning-tab>    
+                    <lightning-tab label="Text Style">    
+                        <div class="slds-grid slds-wrap slds-m-top--x-small">
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">
+                                <h2 class="site-text-heading--large site-text-heading--callout site-jump-anchor__container">Page Heading</h2>
+                                <h2 class="slds-text-heading--medium slds-m-bottom--x-small sub-title">Page Heading Style</h2>
+                                <br/>
+                                <h2 class="site-text-heading--large site-text-heading--callout site-jump-anchor__container">Section Heading</h2>
+                                <h3 class="slds-text-heading--small slds-m-bottom--x-small sec-title">Section Heading</h3>                         
+                             </div>
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">
+                            </div>
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">                              
+                            </div>
+                        </div>                       
+                         
+                    </lightning-tab> 
+                    
+                    <lightning-tab label="Tab Style">    
+                        <div class="slds-grid slds-wrap slds-m-top--x-small">
+                            <div class="slds-col slds-col--padded slds-size_2-of-3">
+                                <lightning-tabset>
+                                    <lightning-tab label="Item One">
+                                        One Content !
+                                    </lightning-tab>
+                                    <lightning-tab label="Item Two">
+                                        Two Content !
+                                    </lightning-tab>
+                                    <lightning-tab label="Item Three">
+                                        Three Content !
+                                    </lightning-tab>
+                                </lightning-tabset>                        
+                             </div>
+                            <div class="slds-col slds-col--padded slds-size_1-of-3">
+                                <!-- <c-range-slider></c-range-slider> -->
+
+                                <br/><br/>
+
+
+                                <div class="slds-slider slds-size_xx-small inline-block">
+                                    <lightning-slider class="agemin-Slider" label="Min Age" min="0" max="100" value={ageStart} onchange={minAgeSlider}></lightning-slider>
+                                   </div>
+                                   <div class="slds-slider slds-size_xx-small inline-block">
+                                    <lightning-slider class="agemax-Slider" label="Max Age" min={ageStart} max="100" value={ageEnd} onchange={maxAgeSlider}></lightning-slider>
+                                </div>
+
+<br/><br/>
+
+
+<div data-role="rangeslider" class="ui-rangeslider">
+        
+    <input type="number" data-type="range" name="price-min" id="price-min" value="200" min="0" max="1000" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-first ui-body-inherit">
+    <label for="price-max" id="price-max-label">Price ssss:</label>
+    <input type="number" data-type="range" name="price-max" id="price-max" value="800" min="0" max="1000" class="ui-shadow-inset ui-corner-all ui-slider-input ui-rangeslider-last ui-body-inherit">
+  <div class="ui-rangeslider-sliders"><div role="application" class="ui-slider-track ui-shadow-inset ui-bar-inherit ui-corner-all" aria-disabled="false" style="z-index: 1;"><div class="ui-slider-bg ui-btn-active" style="margin-left: 34%; width: 46%;"></div></div><div role="application" class="ui-slider-track ui-shadow-inset ui-bar-inherit ui-corner-all" aria-disabled="false"><div class="ui-slider-bg ui-btn-active" style="margin-left: 34%; width: 46%;"></div><a href="#" class="ui-slider-handle ui-btn ui-shadow ui-btn-null" role="slider" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="344" aria-valuetext="344" title="344" aria-labelledby="price-min-label" style="left: 34.4%;"></a><a href="#" class="ui-slider-handle ui-btn ui-shadow ui-btn-null" role="slider" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="800" aria-valuetext="800" title="800" aria-labelledby="price-max-label" style="left: 80%;"></a></div></div></div>
+
+  <br/><br/>
+                                  
+<p>MMMM</p>
+<!-- <div data-role="main" class="ui-content">
+    <div data-role="rangeslider">
+      <label for="price-min">Price:</label>
+      <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+      <label for="price-max">Price:</label>
+      <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+    </div>       
+</div> -->
+
+                            </div>
+                        </div>                       
+                         
+                    </lightning-tab> 
+                    <lightning-tab label="Data Table"> 
+                        <c-data-table2></c-data-table2>
+                    </lightning-tab>                    
+                    
+                </lightning-tabset>
+            </div>
+        </div>
+    
+</template>

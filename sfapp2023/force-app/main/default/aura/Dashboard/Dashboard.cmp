@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+	
+    <div class="slds">
+    	<div class="slds-form-element">
+        	<label class="slds-form-element__label" for="multiSelectSpan">{!v.compname}</label>
+        	<div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <span id="{!'multiSelectSpan' + v.compname}">
+                        <select multiple="true" >
+                            <aura:iteration items="{!v.contacts}" var="contact">
+                                <option text="{!contact.Name}" label="{!contact.Name}"/> 
+                            </aura:iteration>
+                        </select>
+                    </span>
+                </div>
+            </div>
+         </div>
+         <div class="slds-form-element">
+            <div class="slds-form-element__control" id="{!v.compname}">
+                <!--input boxes for Phone will be dynamically added here -->
+            </div>
+        </div>
+        <hr></hr>
+    </div>
+</aura:component>

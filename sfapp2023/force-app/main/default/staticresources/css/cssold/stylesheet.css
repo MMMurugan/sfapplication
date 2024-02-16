@@ -1,0 +1,78 @@
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../robotofonts/Roboto-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body, html * {
+    font-family: 'Roboto', sans-serif;                                                
+}
+.top_section{background-color: #e1e1e1; font-size: 13px; color: #747474; padding: 10px; line-height: 31px; }
+.text_right{text-align: right;}
+.top_logo, .footer_logo{width: 100px;}
+
+.top_nav{
+    text-align: center;
+}
+.top_nav ul, .sec_main_content2 ul{text-decoration: none;}
+.top_nav ul li {padding: 20px 20px; display: inline-block;}
+.top_nav ul li a {color: #224948 !important; font-size: 16px; font-weight: bold;}
+.sec_main_content{
+    /* background-color:#224948; */
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #1677BD 0%, #03af9e 100%);
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+}
+.sec_main_content h1{ font-size: 50px; font-weight: 500; line-height: 60px; color: #ffffff;}
+.sec_main_content p{font-size: 22px; line-height: 1.2; text-align: left;}
+.text_sup{font-size: 12px; line-height: 1px;}
+
+.sec_statistics h1, .sec_main_content2 h1{ font-size: 24px; font-weight: 700; text-align: center;}
+.sec_statistics p{ font-size: 20px; font-weight: 100; text-align: center;}
+.sec_statistics p.count{ font-size: 36px; font-weight: 300; text-align: center;}
+
+.text-center {text-align: center !important;}
+
+.sec_main_content2 h1{ color: #747474;}
+.sec_main_content2 ul li {display: inline; font-size: 14px;}
+.sec_main_content2 ul.button_list li a{
+    padding: 30px 20px;
+    display: inline-block;
+    font-size: 24px;
+    width: 240px;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    background-color: #107d75;
+    margin: 5px;
+    border-radius: 20px;
+    color: #fff;
+}
+.sec_main_content2 ul.button_list li:first-child a{background-color: #607d8b; margin-right: 100px;}
+.sec_main_content2 ul.button_list li a:hover{text-decoration: none;}
+
+.sec_footer {background-color: #525ca3;padding: 20px;font-size: 16px; color: #ffffff;}
+.sec_footer p{ line-height: 1.5;text-align: left;}
+.sec_footer ul li {display: inline-block; margin: 2px 10px;}
+.sec_footer ul li a{color: #ffffff !important; font-size: 12px; text-decoration: underline !important;}
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+@media screen and (max-width: 992px) {
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .sec_main_content h1 {
+        font-size: 28px;
+        line-height: 35px;
+    }
+}

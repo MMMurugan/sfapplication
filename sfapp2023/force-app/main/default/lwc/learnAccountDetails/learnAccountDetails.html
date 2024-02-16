@@ -1,0 +1,72 @@
+<template>
+    <div class="slds-grid slds-wrap application_fieldset slds-p-around_x-small">
+        <div class="slds-col slds-large-size_1-of-1">
+            <fieldset>
+                <legend class="sec-title">
+                    ACCOUNT INFORMATION
+                </legend>
+                
+                <div class="slds-grid slds-wrap grid-coltop10">
+                    <div
+                        class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-2 slds-large-size_1-of-4">
+                        <lightning-input name="Name" label="Name" value={Name} onchange={handleChange}
+                            class="mandateProgram">
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-3 slds-large-size_1-of-4">
+                        <lightning-input label="Phone" type="number" 
+                            class="" value={Phone} maxlength="10" name="Phone"
+                            placeholder="" onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-3 slds-large-size_1-of-4">
+                        <lightning-input label="AccountNumber" required value={AccountNumber} name="AccountNumber" placeholder=""
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+
+                    <div
+                        class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-3 slds-large-size_1-of-4">
+                        <lightning-input label="Website" value={Website} name="Website" placeholder=""
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                    <div
+                        class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-3 slds-large-size_1-of-4">
+                        <lightning-input label="Description" value={Description} name="Description" placeholder=""
+                            onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                    <div
+                    class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-3 slds-large-size_1-of-4">
+                    <lightning-input label="Rating" value={Rating} name="Rating" placeholder=""
+                        onchange={handleChange}>
+                    </lightning-input>
+                </div>
+
+                    <!-- <div
+                        class="slds-col--padded slds-p-left_none slds-size_1-of-1 slds-medium-size--1-of-3 slds-large-size_1-of-4">
+                        <lightning-combobox label="Staff" value={Staff} name="Staff" options={StaffOptions}
+                            placeholder="Select Person In Charge" onchange={handleChange}>
+                        </lightning-combobox>
+                    </div> -->
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap application_fieldset slds-p-around_x-small">
+        <div class="slds-col slds-large-size_1-of-1">
+            <h2>Data Table </h2>
+            <lightning-datatable
+             data={tableData} 
+             columns={tableColumns}
+             key-field="id"
+             hide-checkbox-column
+             >
+
+            </lightning-datatable>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+.style{
+background: yellow;
+}
+
+
+.radio-horizontal .slds-form-element__control .slds-radio,
+.checkbox-horizontal .slds-form-element__control .slds-checkbox{
+    display: inline-block;
+    margin-right: 10px;
+    background-color: red;
+}

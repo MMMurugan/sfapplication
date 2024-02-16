@@ -1,0 +1,31 @@
+<template>
+
+    <section class="section section-search">
+        <div class="container-fluid">
+            <div class="banner-wrapper">
+                <div class="banner-header text-center aos aos-init aos-animate" data-aos="fade-up">
+                    <h1>Search Doctor, Make an Appointment</h1>
+                    <p>Discover the best doctors, clinic &amp; hospital the city nearest to you.</p>
+                </div>
+
+                <div class="search-box aos aos-init aos-animate" data-aos="fade-up">
+                    <form action="search.html">
+                        <div class="form-group search-location">
+                            <!-- <input type="text" class="form-control" placeholder="Search Location"> -->
+                            <lightning-input type="text" class="form-control" placeholder="Search Location" variant="label-hidden"></lightning-input>
+                            <span class="form-text">Based on your Location</span>
+                        </div>
+                        <div class="form-group search-info">
+                            <lightning-input type="text" class="form-control spinner"  placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc" variant="label-hidden"> </lightning-input>
+                            <span class="form-text">Ex : Dental or Sugar Check up etc</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary search-btn mt-0"><i class="icon-search"></i>
+                            <span>Search</span></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</template>

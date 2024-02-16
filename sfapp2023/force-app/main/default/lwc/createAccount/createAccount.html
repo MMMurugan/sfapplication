@@ -1,0 +1,16 @@
+<template>
+    
+    <lightning-card title="Create Record ">
+            <div class="slds-wrap slds-grid">
+                <div class="slds-size_1-of-1 slds-medium-size--1-of-2 slds-col--padded">
+                    <lightning-input type="text" label="Name" name="" onchange={handleChange}></lightning-input>
+                </div>
+                <div class="slds-size_1-of-1 slds-medium-size--1-of-2 slds-col--padded">
+                    <lightning-input type="text" label="Phone" name="" onchange={handleChange}></lightning-input>
+                </div>
+                <div class="slds-size_1-of-1 slds-medium-size--1-of-2 slds-col--padded slds-p-top_small">
+                    <lightning-button label="Create Account" onclick={createAccount} variant="brand"></lightning-button>
+                </div>
+            </div>
+    </lightning-card>
+</template>

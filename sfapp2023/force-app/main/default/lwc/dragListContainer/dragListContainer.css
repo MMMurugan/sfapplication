@@ -1,0 +1,16 @@
+.droparea{
+    border: 1px solid black;
+    position: relative;
+    margin: 3px;
+    /* width:120px;
+    height: 120px; */
+}
+.droparea .row {
+    position: relative;
+    border: 1px solid red;
+    padding: 3px;
+    margin: 3px;
+    width:120px;
+    height: 120px;
+    display:inline-block;
+}

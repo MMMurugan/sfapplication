@@ -1,0 +1,120 @@
+<template>
+    <div class="secMain">
+        <div class="slds-text-align_left col secHeader">REPORTER DETAILS</div>
+        <div class="slds-clearfix">
+            <div class="slds-grid slds-wrap">
+                <div class="mcol slds-size_3-of-12">
+                    <div style="width:35%;display:inline-block;">
+                        <lightning-input variant="label-hidden" placeholder="Title" name="contTitle" onchange={changeHandler}></lightning-input>
+                    </div>
+                    <div style="width:65%;display:inline-block;">
+                        <lightning-input variant="label-hidden" placeholder="First Name" name="contFirstname" type="text" value={contRecord.FirstName} onchange={changeFirstHandler}></lightning-input>
+                    </div>
+                </div>
+                <div class="mcol slds-size_2-of-12">
+                    <lightning-input variant="label-hidden" placeholder="Middle Name" name="contMiddlename" value={contRecord.Middlename} onchange={changeMiddleHandler}></lightning-input>
+                </div>
+                <div class="mcol slds-size_2-of-12">
+                    <lightning-input variant="label-hidden" placeholder="Last Name" name="contLastname" type="text" value={contRecord.LastName} onchange={changeLastHandler}></lightning-input>
+                </div>
+                <div class="mcol slds-size_3-of-12">
+                    <!-- <label>Role</label> -->
+                    <select class="slds-select" name="contRole" onchange={handleRoleChange}>
+                        <div for:each={RolePicklist} for:item='RolePicklist'>
+                            <p key={RolePicklist}>{item}</p>
+                        </div>
+                    </select>
+                </div>
+                <div class="mcol slds-size_2-of-12">
+                    <lightning-input variant="label-hidden" placeholder="Organization" name="contOrganization" value={contRecord.Role} onchange={handleChange}></lightning-input>
+                </div>
+                <!-- <div class="slds-grid slds-gutters slds-text-align_center"></div> -->
+                <div class="mcol slds-size_3-of-12">
+                    <lightning-input variant="label-hidden" placeholder="Email Address" name="contEmailAddress" onchange={handleEmailChange}></lightning-input>
+                </div>
+                <div class="mcol slds-size_2-of-12">
+                    <lightning-input variant="label-hidden" placeholder="Phone Number" name="contPhoneNumber" onchange={handlePhoneChange}></lightning-input>
+                </div>
+
+                <div class="mcol slds-size_3-of-12">
+                    <lightning-input variant="label-hidden" placeholder="Address 1" name="contAddress1" onchange={handleAddress1Change}></lightning-input>
+                </div>
+
+                <div class="mcol slds-size_2-of-12">
+                    <lightning-input variant="label-hidden" placeholder="City" name="contCity" onchange={handleCityChange}></lightning-input>
+                </div>
+
+                <!-- <div class="slds-grid slds-gutters slds-text-align_center" style="padding-top: 17px;"></div> -->
+                <div class="mcol slds-size_2-of-12">
+                    <!-- <label>State</label> -->
+                    <select class="slds-select" name="contState" onchange={handleChange}>
+                        <option value="State ">State </option>
+
+                    </select>
+                </div>
+                <div class="mcol slds-size_2-of-12">
+                    <!-- <label>Country</label> -->
+                    <select class="slds-select" name="contCountry" onchange={handleCountryChange}>
+                        <option value="Country ">Country </option>
+                    </select>
+                </div>
+                <div class="mcol slds-size_2-of-12 leftAlign">
+                    <lightning-input class="" type="Checkbox" label="Unknown Reporter" checked></lightning-input>
+                </div>
+                <div class="mcol slds-size_2-of-12 leftAlign">
+                    <lightning-input class="" type="Checkbox" label="Acknowledgment" checked></lightning-input>
+                </div>
+            </div>
+
+        </div>
+    
+    </br>
+    <div class="slds-text-align_left col secHeader mb-10">NARRATIVE
+        <span class="smallStar">*</span>
+    </div>
+    <div style="Width:100%;">
+        <lightning-input-Rich-Text label="NARRATIVE"></lightning-input-Rich-Text>
+    </div>
+    </br>
+    <div class="slds-text-align_left col secHeader">QUICK PERSON DETAILS</div>
+
+    <div class="slds-clearfix">
+        <div class="slds-grid slds-wrap">
+            <div class="mcol slds-size_2-of-12">
+                <lightning-input placeholder="First Name" name="contFirstNameNumber" onchange={handleFirstNameChange}></lightning-input>
+            </div>
+            <div class="mcol slds-size_2-of-12">
+                <lightning-input placeholder="Last Name" name="contLastNameNumber" onchange={handleLastNameChange}></lightning-input>
+            </div>
+            <div class="mcol slds-size_2-of-12">
+                <lightning-input type="Date" placeholder="DOB" name="contDOBNumber" onchange={handleDOBChange}></lightning-input>
+            </div>
+            <div class="mcol slds-size_1-of-12" style="padding-top: 30px;">
+                <label>Gender</label>
+                <select class="slds-select" name="Gender" onchange={handleGenderChange}>
+                    <option value="Gender ">Gender </option>
+                </select>
+            </div>
+            <div class="mcol slds-size_1-of-12">
+                <lightning-input placeholder="Age" name="contAgeNumber" onchange={handleAgeChange}></lightning-input>
+            </div>
+            <div class="mcol slds-size_2-of-12">
+                <lightning-input placeholder="SSN" name="contSSNNumber" onchange={handleSSNChange}></lightning-input>
+            </div>
+            <div class="mcol slds-size_2-of-12" style="padding-top: 30px;">
+                <!-- <lightning-button label="+ ADD QUICK PERSON" onclick={saveQ} class="btn btn-primary"></lightning-button> -->
+                <span class="btn btn-pri addPerson" onclick={saveQ}> + ADD QUICK PERSON</span>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div class="btnSec txt-right mb-10" >
+        <!--<lightning:button label="Save" class="btn btn-primary" onclick="{!c.SaveContact}"/> -->
+        <!-- <lightning-button label="SAVE AS DRAFT" class="btn btn-primary" variant="brand" onclick={handleSave}></lightning-button> -->
+        <!-- <lightning-button label="SUBMIT FOR APPROVAL" class="btn"></lightning-button> -->
+        <span class="btn btn-pri" onclick={handleSave}>SAVE AS DRAFT</span>
+        <span class="btn btn-sec ml-10" onclick={handleSave}>SUBMIT FOR APPROVAL</span>
+    </div>
+</div>
+</template>

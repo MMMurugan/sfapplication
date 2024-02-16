@@ -1,0 +1,25 @@
+.horizontal-menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.horizontal-menu ul li {
+    margin-right: 20px;
+}
+
+.sub-menu {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+.sub-menu li {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sub-menu a {
+    text-decoration: none;
+    color: #333;
+}

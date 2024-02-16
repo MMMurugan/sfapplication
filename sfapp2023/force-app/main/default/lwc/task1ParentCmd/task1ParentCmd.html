@@ -1,0 +1,88 @@
+<template>
+    <section class="maic_sec">
+        <div class="slds-grid slds-wrap slds-p-top_medium">
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-2">
+                <c-task1-childb-cmd onsearchvalue={handleSearchValue}></c-task1-childb-cmd>
+            </div>
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-2">
+                <c-task1-childc-cmd search-value={searchValue}></c-task1-childc-cmd>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="slds-grid slds-wrap slds-p-top_medium">
+            <div class="slds-col slds-col--padded slds-size_1-of-1 slds-medium-size_1-of-2">
+                <a type="button" variant="brand" class="btn btn-sec mr-10"> Button </a>
+            </div>
+        </div>
+
+
+
+       <br/><br/>
+
+
+        <div>
+            <h1>Contacts Report</h1>
+            <p>Date: {currentDate}</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={contacts} for:item="contact">
+                        <tr key={contact.Id}>
+                            <td>{contact.Name}</td>
+                            <td>{contact.Email}</td>
+                            <td>{contact.Phone}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+            <button onclick={openPDFInNewTab}>View PDF</button>
+        </div>
+
+
+
+
+    <h2>Map loop</h2>
+
+    <lightning-card title="Student List">
+
+       
+        <template for:each={studentArray} for:item="student" for:intex="index">    
+       
+            <template if:true={student.isEmail}>
+                <h2 key={student.name}>Email</h2>
+                <p key={student.name}>Name: {student.name}, Age: {student.age}</p>
+            </template>
+
+                <h2 key={student.name}>Comments</h2>        
+                
+                <p key={student.name}>Name: {student.comments}, Age: {student.age}</p>
+        </template>
+        
+
+
+    </lightning-card>
+
+    
+    <h2> Remove duplicate record</h2>
+
+    <c-duplicate-record-retriever-component></c-duplicate-record-retriever-component>
+   
+    <h2>Chat GPT</h2>
+
+    <!-- <c-chat-g-p-t></c-chat-g-p-t> -->
+
+    <h2>LWC Apex Wrapper Demo </h2>
+    <c-l-w-c-wrapper-demo></c-l-w-c-wrapper-demo>
+
+
+   <c-task2-parent-child></c-task2-parent-child>
+    <!-- <c-textcompletioncomponent></c-textcompletioncomponent> -->
+</section>
+
+</template>

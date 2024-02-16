@@ -1,0 +1,9 @@
+<svg id="Component_41_1" data-name="Component 41 – 1" xmlns="http://www.w3.org/2000/svg" width="48" height="45" viewBox="0 0 48 45">
+  <g id="Polygon_3" data-name="Polygon 3" fill="none">
+    <path d="M24,0,48,17.188,38.833,45H9.167L0,17.188Z" stroke="none"/>
+    <path d="M 24 1.230007171630859 L 1.179836273193359 17.57349395751953 L 9.890499114990234 44 L 38.10950088500977 44 L 46.82016372680664 17.57349395751953 L 24 1.230007171630859 M 24 0 L 48 17.1884708404541 L 38.83280944824219 45 L 9.167190551757813 45 L 0 17.1884708404541 L 24 0 Z" stroke="none" fill="#545ee4"/>
+  </g>
+  <g id="Component_29_2" data-name="Component 29 – 2">
+    <path id="Polygon_1" data-name="Polygon 1" d="M24,0,48,17.188,38.833,45H9.167L0,17.188Z" fill="#545ee4" opacity="0.23"/>
+  </g>
+</svg>

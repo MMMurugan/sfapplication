@@ -1,0 +1,698 @@
+<template>
+    <div class="sec-main">
+        <div class="sec-header">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_1-of-1 slds-p-vertical_medium slds-align_absolute-center">
+                    <img src={mmlogo} alt="AMG logo"  onclick={navigatetoHome}/>
+                </div>
+            </div>
+        </div>
+        <template if:true={appointment}>
+            <div class="sec-makeappointment container slds-p-vertical_large slds-p-horizontal_medium">
+                <div class="text-align_center slds-p-top_large">
+                    <h1 class="font-weight-bold">Make an Appointment</h1>
+                    <h4>Please select how you would like to book your appointment</h4>
+                </div>
+                <div class="slds-grid slds-wrap list_appointment shadow-card">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-col--padded">
+                        <a onclick={navigatetoVisit}>
+                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_visit_reason.svg" alt="">
+                            <h5 class="font-weight-bold">Visit reason</h5>
+                        </a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-col--padded">
+                        <a onclick={navigatetoProvider}>
+                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_provider.svg" alt="">
+                            <h5 class="font-weight-bold">Provider</h5>
+                        </a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-col--padded">
+                        <a >
+                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_same_day_visits.svg" alt="">
+                            <h5 class="font-weight-bold">Same day visits</h5>
+                        </a>
+                    </div>
+                </div>           
+            </div>
+        </template>
+        <template if:true={visitReason}>
+            <div class="visit-reason">
+                <div class="page-title">
+                    <div class="container">
+                        <img src="https://homesas.co/clientes/antro/twh/_/images/ico_visit_reason.svg" alt="">
+                        <h1 class="font-weight-bold">Visit reason</h1>
+                    </div>
+                </div>             
+                <div class="reason-list">
+                        <div class="container">
+                            <div class="slds-grid slds-wrap slds-p-vertical_large reason-list-search">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_8-of-12 slds-col--padded">
+                                    <h5 class="">Please select the reason for your visit</h5>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12 slds-col--padded">
+                                    <lightning-input
+                                    name="enter-search"
+                                    label="Search"
+                                    variant="label-hidden"
+                                    type="search"
+                                    placeholder="Search"
+                                    class="search_season custom-input-style slds-input__icon_right"
+                                ></lightning-input>
+                                </div>
+                            </div>
+                            <div class="list_appointment shadow-card pt-0">
+                                <div class="slds-grid slds-wrap slds-p-vertical_medium">
+                                    <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                                        <a >
+                                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_routine_physical_exam.svg" alt="">
+                                            <h5>Routine physical Exam</h5>
+                                        </a>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                                        <a >
+                                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_medicare_annual_wellness_exam.svg" alt="">
+                                            <h5>Medicare Annual Wellness Exam</h5>
+                                        </a>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                                        <a >
+                                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_specialist_consultation.svg" alt="">
+                                            <h5>Specialist consultation</h5>
+                                        </a>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                                        <a >
+                                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_follow_up_visit.svg" alt="">
+                                            <h5>Follow up visit</h5>
+                                        </a>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                                        <a >
+                                            <img src="https://homesas.co/clientes/antro/twh/_/images/ico_feeling_unwell.svg" alt="">
+                                            <h5>Feeling unwell</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                </div>
+            </div>
+        </template>
+        <template if:true={provider}>
+            <div class="page-provider">
+                <div class="page-title">
+                    <div class="container">
+                        <img src="https://homesas.co/clientes/antro/twh/_/images/ico_provider.svg" alt="">
+                        <h1 class="font-weight-bold">Provider</h1>
+                    </div>
+                </div> 
+                <div class="reason-list">
+                    <div class="container">
+                        <div class="slds-grid slds-wrap slds-p-vertical_large reason-list-search">
+                            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 slds-col--padded">
+                                <h5 class="">Please select your preferred provider</h5>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12 slds-col--padded">
+                                <lightning-combobox type="text" 
+                                label="Alphabetical" name="Alphabetical" placeholder='Filter By Alphabetical Order' class="custom-input-style">
+                            </lightning-combobox>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_4-of-12 slds-col--padded">
+                                <lightning-combobox type="text" 
+                                label="Speciality" name="speciality" placeholder='Filter By Speciality' class="custom-input-style">
+                            </lightning-combobox>
+                            </div>
+                        </div>
+                        <div class="list_provider shadow-card pt-0">
+                            <div class="slds-grid slds-wrap slds-p-vertical_medium">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4 slds-col--padded">
+                                    <a >
+                                        <figure>
+                                          <img src="https://homesas.co/clientes/antro/twh/_/images/avatar.jpg" alt="">
+                                        </figure>
+                                        <h5 class="font-weight-bold">Dr. Robert abbe</h5>
+                                        <h6>Alternative medicine</h6>
+                                      </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4 slds-col--padded">
+                                    <a >
+                                        <figure>
+                                          <img src="https://homesas.co/clientes/antro/twh/_/images/avatar.jpg" alt="">
+                                        </figure>
+                                        <h5 class="font-weight-bold">Dr. Robert abbe</h5>
+                                        <h6>Alternative medicine</h6>
+                                      </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4 slds-col--padded">
+                                    <a >
+                                        <figure>
+                                          <img src="https://homesas.co/clientes/antro/twh/_/images/avatar.jpg" alt="">
+                                        </figure>
+                                        <h5 class="font-weight-bold">Dr. Robert abbe</h5>
+                                        <h6>Alternative medicine</h6>
+                                      </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4 slds-col--padded">
+                                    <a >
+                                        <figure>
+                                          <img src="https://homesas.co/clientes/antro/twh/_/images/avatar.jpg" alt="">
+                                        </figure>
+                                        <h5 class="font-weight-bold">Dr. Robert abbe</h5>
+                                        <h6>Alternative medicine</h6>
+                                      </a>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-4 slds-col_padded">
+                                    <a >
+                                        <figure>
+                                          <img src="https://homesas.co/clientes/antro/twh/_/images/avatar.jpg" alt="">
+                                        </figure>
+                                        <h5 class="font-weight-bold">Dr. Robert abbe</h5>
+                                        <h6>Alternative medicine</h6>
+                                      </a>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>                        
+            </div>            
+            </div>
+        </template>
+<!-- 
+                <section>
+                  <div class="container_690 px-4">
+                    <div class="my-4 py-2 text-center">
+                      <div class="my-2">
+                        <h2 class=""><strong>Are you a new or existing patient with us?</strong></h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container_370 pt-4 row px-2">
+                    <div class="mb-3 col-12">
+                      <a href="" class="btn_send_patient">New Patient</a>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <a href="" class="btn_send_patient">Existing Patient</a>
+                    </div>
+                  </div>
+            
+                </section> -->
+
+
+                  <!-- <div class="container_690 px-4">
+                    <div class="my-4 py-2 text-center">
+                      <div class="my-2">
+                        <h2 class=""><strong>Has your primary medical insurance information changed since your last visit?</strong></h2>
+                        <h5>Here is what we have on file for you:</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container_370 pt-4 row px-2">
+                    <div class="mb-3 col-12">
+                      <label for="">ADDRESS</label>
+                      <input type="text" placeholder="" value="5120 Cherry Azve" disabled>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <label for="">CITY</label>
+                      <input type="text" placeholder="" value="CANADA" disabled>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                      <label for="">STATE</label>
+                      <select name="" id="" disabled>
+                        <option value="">Nulla et eros</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                      <label for="">ZIP</label>
+                      <input type="text" placeholder="" value="2758" disabled>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <label for="">PHONE NUMBER</label>
+                      <input type="text" placeholder="" value="2647692187" disabled>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <label for="">EMERGENCY CONTACT NAME</label>
+                      <input type="text" placeholder="" value="ELMINA ROYS GAVITT" disabled>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <label for="">EMERGENCY CONTACT NUMBER</label>
+                      <input type="text" placeholder="" value="562879362" disabled>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <a href="" class="btn_send_patient">My information is the same</a>
+                    </div>
+                    <div class="mb-3 col-12">
+                      <a href="" class="btn_send_patient_white">My information has changed</a>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-center px-4">
+                    <a href="javascript:;" class="text-purple3">What is the difference between primary and secondary insurance?</a>
+                  </div> -->
+
+
+
+        <div class="sec-footer">
+            <div class="container">
+                <div class="slds-grid slds-wrap slds-p-vertical_medium">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_7-of-12 slds-col--padded">
+                        <a >PRIVACY POLICY</a>
+                        <a >TERMS OF SERVICE</a>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_5-of-12 slds-col--padded text-right">
+                        <p class="">POWERED BY THIRD WAY HEALTH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- 
+<apex:page controller="CustomBillingOutstandingStmntCtrl" renderAs="pdf" showHeader="false" sidebar="false"
+  standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+
+  <head>
+    <style type="text/css" media="print">
+      @page: first {
+        @top-right {
+          content: element(headerFirst);
+        }
+
+        @bottom-left {
+          content: element(footer);
+        }
+
+        margin-top:100px;
+      }
+
+      @page {
+        @top-right {
+          content: element(header);
+        }
+
+        @bottom-left {
+          content: element(footer);
+        }
+
+        margin-top:200px;
+      }
+
+      div.headerFirst {
+        position: running(headerFirst);
+      }
+
+      div.header {
+        position: running(header);
+        height: 180px;
+        vertical-align: bottom;
+      }
+
+      div.content {
+        position: relative;
+      }
+
+      div.footer {
+        display: block;
+        padding: 5px;
+        position: running(footer);
+      }
+
+      .pagenumber:before {
+        content: counter(page);
+      }
+
+      .pagecount:before {
+        content: counter(pages);
+      }
+
+      body {
+        font-family: "Arial" "Sans-Serif";
+        font-size: 12px;
+        margin: 0px;
+      }
+
+      .tableHeader {
+        font-weight: bold;
+        height: 20px;
+        padding: 6px;
+        vertical-align: top;
+        color: #278540;
+        border-top: 3px solid #000;
+      }
+
+      .columnHeader {
+        text-align: right;
+      }
+
+      .tableRow {
+        border-bottom: 1px solid #278540;
+        padding: 6px;
+        vertical-align: text-top;
+      }
+
+      .topLine {
+        border-top: 1px solid #278540;
+      }
+
+      .tableRowAmount {
+        background-color: #278540;
+        color: white;
+      }
+
+      .tableRowAdress {
+        color: #278540;
+      }
+
+      .alignRight {
+        text-align: right
+      }
+
+      .overflowHidden {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .balanceTable {
+        width: 200px;
+        border-collapse: collapse;
+        float: right;
+        page-break-inside: avoid;
+        margin-top: 12px
+      }
+
+      .table_invoice {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table_invoice tr {
+        border-bottom: 2px solid #278541;
+      }
+
+      .table_invoice th {
+        text-transform: uppercase;
+        color: #278541;
+        background: #ecfbf0;
+      }
+
+      .table_invoice th,
+      .table_invoice td {
+        padding: 5px;
+      }
+
+      /* .invoice-innertbl td{padding: 0;} */
+      .invoice-innertbl {
+        border: 2px solid #ccc;
+      }
+
+      .invoice-innertbl table {
+        width: 100%;
+      }
+
+      .invoice-innertbl>td {
+        padding: 0;
+      }
+
+      .table_invoice table td {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="border:1px #278541 solid;">
+      <apex:repeat value="{!Billings}" var="item">
+        <table class="table_invoice"
+          style="width: 100%;background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Invoice #</th>
+              <th>Due Date</th>
+              <th style="width:80px">Total</th>
+              <th style="width:100px">Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{!item.AcctSeed__Date__c}</td>
+              <td>{!item.AcctSeed__Proprietary_Billing_Number__c}</td>
+              <td>{!item.AcctSeed__Due_Date2__c}</td>
+              <td>{!item.AcctSeed__Total__c}</td>
+              <td>{!item.AcctSeed__Balance__c}</td>
+
+            </tr>
+            <tr class="invoice-innertbl">
+              <td colspan="6">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Serial #</th>
+                      <th>Quantity</th>
+                      <th>Unit Price</th>
+                      <th style="width:80px">Total</th>
+                      <th style="width:100px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <apex:repeat value="{!item.AcctSeed__Project_Billing_Lines__r}" var="lines">
+                      <tr>
+                        <td>{!lines.AcctSeed__Product__c}</td>
+                        <td>{!lines.inscoras__Serial_Number__c}</td>
+                        <td>{!lines.AcctSeed__Hours_Units__c}</td>
+                        <td>{!lines.AcctSeed__Rate__c}</td>
+                        <td>{!lines.AcctSeed__Total__c}</td>
+                        <td></td>
+                      </tr>
+
+
+
+                    </apex:repeat>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </apex:repeat>
+    </div>
+
+  </body>
+</apex:page> -->
+
+
+
+<!-- <apex:page controller="CustomBillingOutstandingStmntCtrl" renderAs="pdf" showHeader="false" sidebar="false"
+  standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+
+  <head>
+    <style type="text/css" media="print">
+      @page: first {
+        @top-right {
+          content: element(headerFirst);
+        }
+
+        @bottom-left {
+          content: element(footer);
+        }
+
+        margin-top:100px;
+      }
+
+      @page {
+        @top-right {
+          content: element(header);
+        }
+
+        @bottom-left {
+          content: element(footer);
+        }
+
+        margin-top:200px;
+      }
+
+      div.headerFirst {
+        position: running(headerFirst);
+      }
+
+      div.header {
+        position: running(header);
+        height: 180px;
+        vertical-align: bottom;
+      }
+
+      div.content {
+        position: relative;
+      }
+
+      div.footer {
+        display: block;
+        padding: 5px;
+        position: running(footer);
+      }
+
+      .pagenumber:before {
+        content: counter(page);
+      }
+
+      .pagecount:before {
+        content: counter(pages);
+      }
+
+      body {
+        font-family: "Arial" "Sans-Serif";
+        font-size: 12px;
+        margin: 0px;
+      }
+
+      .tableHeader {
+        font-weight: bold;
+        height: 20px;
+        padding: 6px;
+        vertical-align: top;
+        color: #278540;
+        border-top: 3px solid #000;
+      }
+
+      .columnHeader {
+        text-align: right;
+      }
+
+      .tableRow {
+        border-bottom: 1px solid #278540;
+        padding: 6px;
+        vertical-align: text-top;
+      }
+
+      .topLine {
+        border-top: 1px solid #278540;
+      }
+
+      .tableRowAmount {
+        background-color: #278540;
+        color: white;
+      }
+
+      .tableRowAdress {
+        color: #278540;
+      }
+
+      .alignRight {
+        text-align: right
+      }
+
+      .overflowHidden {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .balanceTable {
+        width: 200px;
+        border-collapse: collapse;
+        float: right;
+        page-break-inside: avoid;
+        margin-top: 12px
+      }
+
+      .table_invoice {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table_invoice tr {
+        border-bottom: 2px solid #278541;
+      }
+
+      .table_invoice th {
+        text-transform: uppercase;
+        color: #278541;
+        background: #ecfbf0;
+      }
+
+      .table_invoice th,
+      .table_invoice td {
+        padding: 5px;
+      }
+ 
+      .invoice-innertbl {
+        border: 2px solid #ccc;
+      }
+
+      .invoice-innertbl table {
+        width: 100%;
+      }
+
+      .invoice-innertbl>td {
+        padding: 0;
+      }
+
+      .table_invoice table td {
+        padding: 5px;
+      }
+      .totalinfo{display:inline-block;padding:10px; background:#278541; color:#fff; margin-top:5px; margin-bottom:5px;font-size:14px;}
+      .totalinfo span{width:100px; padding:10px;}
+    </style>
+  </head>
+
+  <body>
+    <div style="border:1px #278541 solid;">
+      <apex:repeat value="{!Billings}" var="item">
+        <table class="table_invoice"
+          style="width: 100%;background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Invoice #</th>
+              <th>Due Date</th>
+              <th style="width:80px">Total</th>
+              <th style="width:100px">Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{!item.AcctSeed__Date__c}</td>
+              <td>{!item.AcctSeed__Proprietary_Billing_Number__c}</td>
+              <td>{!item.AcctSeed__Due_Date2__c}</td>
+              <td>{!item.AcctSeed__Total__c}</td>
+              <td>{!item.AcctSeed__Balance__c}</td>
+            </tr>
+            <tr class="invoice-innertbl">
+              <td colspan="6">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Serial #</th>
+                      <th>Quantity</th>
+                      <th>Unit Price</th>
+                      <th style="width:80px">Total</th>
+                      <th style="width:100px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <apex:repeat value="{!item.AcctSeed__Project_Billing_Lines__r}" var="lines">
+                      <tr>
+                        <td>{!lines.AcctSeed__Product__c}</td>
+                        <td>{!lines.inscoras__Serial_Number__c}</td>
+                        <td>{!lines.AcctSeed__Hours_Units__c}</td>
+                        <td>{!lines.AcctSeed__Rate__c}</td>
+                        <td>{!lines.AcctSeed__Total__c}</td>
+                        <td></td>
+                      </tr>
+                    </apex:repeat>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+          <hr style="border-bottom:1px #278541 solid;" />
+        </table>
+      </apex:repeat>
+          <div style="text-align:right">
+              <span class="totalinfo">Amount Due <span> USD 12000.00 </span></span>
+          </div>
+    </div>
+    
+  </body>
+  
+</apex:page> -->

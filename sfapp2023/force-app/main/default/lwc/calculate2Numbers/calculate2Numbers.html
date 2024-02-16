@@ -1,0 +1,11 @@
+<template>
+    <div title="Calculate 2 Numbers">
+        <lightning-button label="submit" slot="actions" onclick={handleClick}></lightning-button>
+        <div class="slds-p-horizontal_medium">
+                <lightning-input type="number" value={firstNumber} name="fstNumber" label="First Number" onchange={handleChange} ></lightning-input>
+                <lightning-input type="number" value={secondNumber} name="scdNumber" label="Second Number" onchange={handleChange} ></lightning-input>
+        </div>
+        <p slot="footer">{sum}</p>
+
+    </div>
+</template>

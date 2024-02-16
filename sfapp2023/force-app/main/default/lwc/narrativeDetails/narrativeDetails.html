@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-col--padded">
+                <p class="slds-text-align_left sub-title">NARRATIVE DETAILS
+                    <!-- <span class="smallStar">*</span> -->
+                </p>
+                <lightning-input-Rich-Text label="NARRATIVE DETAILS" class="richtxt" value={casrecord.Description} onchange={handlechange}></lightning-input-Rich-Text>
+            </div>
+        </div>
+        <div class="btnSec mt-20">
+            <lightning-button label="Save" class="btn btn-pri" variant="brand" onclick={handleSave}></lightning-button>
+        </div>        
+    </div>
+    
+</template>

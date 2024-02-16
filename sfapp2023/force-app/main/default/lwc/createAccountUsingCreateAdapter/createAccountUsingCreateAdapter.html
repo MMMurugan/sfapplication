@@ -1,0 +1,27 @@
+<template>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <lightning-input type="text" name="accName" label="Account Name" onchange={handleOnChange} required> </lightning-input>                     
+        </div>   
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <lightning-input type="text" name="accPhone" label="Account Phone" onchange={handleOnChange} required> </lightning-input>                 
+        </div>   
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <lightning-input type="text" name="accIndustry" label="Account Industry" onchange={handleOnChange} required> </lightning-input>                  
+        </div>   
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <lightning-input type="text" name="accNoofEmp" label="NO Of Employee " onchange={handleOnChange} required> </lightning-input>                      
+        </div>   
+        <div class="slds-col--padded slds-size_1-of-4 slds-p-bottom_small">
+            <div class="slds-m-vertical_small slds-p-top_x-large">
+                <lightning-button label="Add" class="btn btn-pri" onclick={createAccount}> </lightning-button>
+            </div>                  
+        </div>        
+        
+    </div>
+
+    <br/><br/>
+
+    <c-display-contact-get-adapter></c-display-contact-get-adapter>
+</template>

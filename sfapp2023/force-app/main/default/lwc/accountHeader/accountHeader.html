@@ -1,0 +1,111 @@
+<template>
+    
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid slds-page-header slds-m-bottom_none">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                </svg>
+                <span class="slds-assistive-text">contact</span>
+              </span>
+            </div>
+            <div class="slds-media__body">
+                <h6> Contact</h6>
+              <h2 class="slds-card__header-title">               
+                <a href="#" class="slds-card__header-link slds-truncate" title="Contacts">                    
+                  <span class="slds-clearfix">Mr. Murugan MM</span>
+                </a>
+              </h2>
+            </div>
+            <div class="slds-no-flex">
+                <lightning-button label="Follow" title="Download action" icon-name="utility:add" class="slds-m-right_xx-small"></lightning-button>
+                  <!-- Button group: simple buttons and a button-menu -->
+        <lightning-button-group>
+            <lightning-button label="New Case"></lightning-button>
+            <lightning-button label="New Note"></lightning-button>
+            <lightning-button label="Submit for Approval"></lightning-button>
+            <lightning-button-menu alternative-text="Show menu" variant="border-filled">
+                <lightning-menu-item label="Menu Item One" value="item1"></lightning-menu-item>
+                <lightning-menu-item label="Menu Item Two" value="item2"></lightning-menu-item>
+                <lightning-menu-item label="Menu Item Three" value="item3"></lightning-menu-item>
+            </lightning-button-menu>
+        </lightning-button-group>
+            </div>
+          </header>
+        </div>
+        <div class="slds-card__body">
+          <!-- <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout" role="grid">
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Name">Title</div>
+                </th>
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Company">Account Name</div>
+                </th>
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Title">Phone</div>
+                </th>
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Email">Email</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Owner">Contact Owner</div>
+                  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="slds-hint-parent">
+                <th scope="row">
+                  <div class="slds-truncate" title="Amy Choi">
+                    <a href="#" tabindex="-1">Amy Choi</a>
+                  </div>
+                </th>
+                <td role="gridcell">
+                  <div class="slds-truncate" title="Company One">Company One</div>
+                </td>
+                <td role="gridcell">
+                  <div class="slds-truncate" title="Director of Operations">Director of Operations</div>
+                </td>
+                <td role="gridcell">
+                  <div class="slds-truncate" title="adam@company.com">adam@company.com</div>
+                </td>
+                <td role="gridcell">
+                    <div class="slds-truncate" title="Murugan">Murugan MM</div>
+                  </td>
+              </tr>
+            </tbody>
+          </table> -->
+          <!-- <br/><br/><br> -->
+
+
+          <div class="slds-grid slds-wrap slds-p-horizontal_small">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-10">
+                <h4>Title</h4>
+                <p>New Contact</p> 
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-10">
+                <h4>Account Name</h4>
+                <p>Murugan MM</p> 
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-10">
+                <h4>Phone</h4>
+                <p>91 9876543210</p> 
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-10">
+                <h4>Email</h4>
+                <p>mmm.muruganmca@gmail.com</p> 
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-10">
+                <h4>Contact Owner</h4>
+                <p>murugan.mm</p> 
+            </div>
+          </div>
+
+       
+        </div>
+       
+      </article>
+</template>

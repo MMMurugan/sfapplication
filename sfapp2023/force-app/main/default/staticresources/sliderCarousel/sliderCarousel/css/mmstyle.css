@@ -1,0 +1,39 @@
+#wrapper {overflow-x: hidden;}
+#page-content-wrapper {min-width: 100vw;}
+#page-content-wrapper  .container-fluid{position:relative;}
+.mt-20{margin-top:20px;}
+.profile-infos{height:calc(100vh - 172px); overflow:auto; padding: 0 8px;}
+
+/************ custom style********************/
+.user-list{list-style: none;}
+.user-list li{ padding:5px;border-bottom: 1px solid #f5f7fb;}
+.user-list li img{height: 2.2rem;width: 2.2rem;border-radius: 50%; margin-right:10px;}
+.user-list li a,  .user-list li a:hover{color:#6f6f6f; }
+
+/*********************************************/
+
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item > div { display: none;}
+  .carousel-inner .carousel-item > div:first-child { display: block;}
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+@media (min-width: 768px) {  
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }  
+  .carousel-inner .carousel-item-left.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
+}
+  .carousel-inner .carousel-item-right,
+  .carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+  }

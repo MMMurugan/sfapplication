@@ -1,0 +1,40 @@
+<template>
+    <div class="sec_footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-logotext">
+                    <img src={googleLogo} alt="" class="footer_logo">
+                    
+                    <p class="slds-p-top_small slds-m-bottom_none">© 2023 Regeneron Pharmaceuticals, Inc. All rights reserved.</p>
+                    <p class="slds-m-bottom_none">ONC.23.02.0022 &nbsp; &nbsp; 02/23</p>
+                    <p>Questions or comments? Call 1.877.734.6777 to contact Regeneron Pharmaceuticals, Inc.</p>
+                </div>
+                <div class="footer-links">
+                    <ul class="slds-p-around_small button_list slds-align_absolute-center-mmmm">
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of Use</a>
+                        </li>
+                        <li>
+                            <a href="#">Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>              
+        </div>          
+    </div>
+
+    <div class="backtotop" if:true={showScrollButton}>
+        <a class="" onclick={topFunction}><i class="arrow up"></i> </a>
+        
+    </div>
+    
+    <!-- <lightning-button-icon icon-name="utility:arrowup" class="topButton" onclick={topFunction}
+                       variant="brand" alternative-text="ArrowUp">
+</lightning-button-icon> -->
+</template>

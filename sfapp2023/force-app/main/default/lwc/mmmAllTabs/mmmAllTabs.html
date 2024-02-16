@@ -1,0 +1,144 @@
+<template>
+    <div class={mainClass}>
+        <!-- <c-mmm-create-account></c-mmm-create-account> -->
+
+        <h2>Parent Child Communication</h2>
+        <c-parentchild-parent></c-parentchild-parent>
+
+        <hr />
+
+        <!-- <c-childparent-child></c-childparent-child> -->
+        <c-childparent-parent></c-childparent-parent>
+
+
+
+        <h3>Class Style </h3>
+
+        <c-dynamic-styling ongetclassvalue={getclassvalue}></c-dynamic-styling>
+        <br /><br />
+        <hr />
+        <br />
+        <h3>Pass parameters to an apex methord </h3>
+
+        <c-calculate2-numbers></c-calculate2-numbers>
+
+        <h2> API Call</h2>
+        <!-- <c-rest-callout></c-rest-callout> -->
+
+        <h2>Record form</h2>
+        <!-- <c-account-create-record-form></c-account-create-record-form> -->
+
+        <h2>Record form update</h2>
+        <c-contact-update-record-form></c-contact-update-record-form>
+        <br /><br />
+        <hr />
+        <h2>Create Account</h2>
+        <c-create-account></c-create-account>
+        <br /><br />
+        <hr />
+        <h2>Create Account via Apex</h2>
+        <c-account-creattion_-apex></c-account-creattion_-apex>
+        <br /><br />
+        <hr />
+        <h2>Contact list</h2>
+
+        <c-mass-delete></c-mass-delete>
+        <br /><br />
+        <hr />
+        <c-search-account></c-search-account>
+        <br /><br />
+        <hr />
+
+        <!-- <c-dragger_-component></c-dragger_-component> -->
+
+
+        <br /><br />
+
+        <hr>
+
+        <c-pick-list-example></c-pick-list-example>
+
+        <br /><br />
+
+        <hr>
+
+        <c-getters-setters></c-getters-setters>
+        <br /><br />
+
+        <hr>
+
+        <c-conditional-rendering-tabs></c-conditional-rendering-tabs>
+
+        <br /><br />
+
+        <hr>
+
+        <br /><br />
+        <h2>Trailhead LWC example <a
+                href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-visualforce-to-lwc-sample-app/explore-the-sample-app-vf2lwc?trail_id=migrate-from-visualforce-to-lightning-web-components">Link</a>
+        </h2>
+
+        <h3> https://github.com/trailheadapps </h3>
+
+
+        <p>C:\Users\murug\visualforce-to-lwc\force-app\main\default\lwc\listRecordLinks\listRecordLinks.html</p>
+
+        <c-list-record-links></c-list-record-links>
+        <hr>
+
+        <br /><br />
+
+        <c-whatsapp-launcher></c-whatsapp-launcher>
+
+        <br /><br />
+
+        <c-datatable-demo></c-datatable-demo>
+
+        <br />
+        <br />
+        <h2>Style Guide</h2>
+        <c-sldsstyleguide></c-sldsstyleguide>
+
+        <br/><br/>
+
+        <h1>SF YouTube Integration</h1>
+
+        <c-youtube-search-player></c-youtube-search-player>
+        <br/><br/>
+
+        <c-top-section></c-top-section>
+
+        <br/><br/>     <br/><br/>     <br/><br/>     <br/><br/>     <br/><br/>     <br/><br/>
+
+
+        <template for:each={data} for:item="item">
+            <div key={item.Id}>
+                <h2 class={item.class}>{item.key}</h2>
+                <!-- Access properties of 'item.value' -->
+                Product Name: {item.value.AcctSeedERP_Product_r.Name}<br />
+                Available Quantity: {item.value.AcctSeedERP_Available_Quantity_c}<br />
+                <!-- Add more properties as needed -->
+            </div>
+        </template>
+
+
+
+        <br/><br/>     <br/><br/>     <br/><br/> 
+
+        <h2> Nav menu with sub menu</h2>
+
+        <c-nav-menu-google></c-nav-menu-google>
+
+
+        <br/><br/>     <br/><br/>     
+        <h2> suggestion </h2>
+        <c-input-suggestion></c-input-suggestion>
+
+        <br/><br/> 
+
+        <c-lwc-account-lookup></c-lwc-account-lookup>
+        <br/><br/> 
+
+        <br/><br/> 
+    </div>
+</template>

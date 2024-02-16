@@ -1,0 +1,52 @@
+<template>
+    <div class="main-content">
+
+        <h2> CSS Style Guidelines </h2>
+
+        <!-- Shared css style-->
+        <c-shared-style-example1></c-shared-style-example1>
+        <c-shared-style-example2></c-shared-style-example2>
+
+        <h2>Apply an existing CSS class</h2>
+
+        <section>
+            <p>I am a huge fan of the lightning design system (SLDS) because it removes friction from the end user
+                experience and offers outstanding guidance on how a component should behave and appear. The design
+                system covers a huge variety of styling needs – paddings and margins and many more – without having to
+                create any custom CSS of our own.</p>
+            <p>The design system covers a huge variety of styling needs – paddings and margins and many more – without
+                having to create any custom CSS of our own.</p>
+        </section>
+
+
+        <!-- Apply CSS properties programmatically -->
+
+        <section class="mmm">
+            <p>I am a huge fan of the lightning design system (SLDS) because it removes friction from the end user
+                experience and offers outstanding guidance on how a component should behave and appear. The design
+                system covers a huge variety of styling needs – paddings and margins and many more – without having to
+                create any custom CSS of our own.</p>
+            <p>The design system covers a huge variety of styling needs – paddings and margins and many more – without
+                having to create any custom CSS of our own.</p>
+        </section>
+        <br/>
+
+        <h1>drag and drop component</h1>
+        <!-- <c-drag-drop></c-drag-drop> -->
+
+        <lightning-layout>
+            <lightning-layout-item size="12">
+                <c-drag-list-container name="available" items={availableItems} onstartmove={handleDragStart}
+                    onendmove={handleDragComplete}>
+                </c-drag-list-container>
+            </lightning-layout-item>
+          
+        </lightning-layout>
+
+
+        <br/><br/><br/>
+        <h1>Custom HTML</h1>
+        <c-custom-html></c-custom-html>
+
+    </div>
+</template>

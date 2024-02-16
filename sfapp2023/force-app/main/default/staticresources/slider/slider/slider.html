@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Meeting Page</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/mmstyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="userlist">
+    <div class="row mx-auto my-auto">
+        <div id="recipeCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-3">
+                        <div class="card card-body">
+                            <img class="img-fluid" src="images/users/user-1.jpg">                            
+                        </div>                                    
+                    </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="card card-body">
+                        <img class="img-fluid" src="images/users/user-2.jpg">                        
+                    </div>                                    
+                </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="card card-body">
+                        <img class="img-fluid" src="images/users/user-3.jpg">                        
+                    </div>                                    
+                </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="card card-body">
+                        <img class="img-fluid" src="images/users/user-4.jpg">                        
+                    </div>                                    
+                </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-md-3">
+                    <div class="card card-body">
+                        <img class="img-fluid" src="images/users/user-5.jpg">                        
+                    </div>                                    
+                </div>
+                </div>
+                
+            </div>
+            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                <img src="images/users/arrow-left.png"/>
+            </a>
+            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+              <img src="images/users/arrow-right.png"/>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
+    // carousal
+
+    $('#recipeCarousel').carousel({
+      interval: 10000
+    })
+    
+    $('.carousel .carousel-item').each(function(){
+        var minPerSlide = 4;
+        var next = $(this).next();
+        if (!next.length) {
+        next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        
+        for (var i=0;i<minPerSlide;i++) {
+            next=next.next();
+            if (!next.length) {
+              next = $(this).siblings(':first');
+            }
+            
+            next.children(':first-child').clone().appendTo($(this));
+          }
+    });
+
+    
+  </script>
+
+</body>
+
+</html>

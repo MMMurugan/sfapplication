@@ -1,0 +1,22 @@
+<template>
+    <nav class="horizontal-menu">
+        <ul>
+            <li>
+                <a href="#" onclick={navigateToHome}>Home</a>
+            </li>
+            <li>
+                <a href="#" onclick={navigateToAbout}>About</a>
+            </li>
+            <li>
+                <a href="#" onclick={toggleServicesSubMenu}>Services</a>
+                <ul class="sub-menu" if:true={showServicesSubMenu}>
+                    <li><a href="#" onclick={navigateToServiceA}>Service A</a></li>
+                    <li><a href="#" onclick={navigateToServiceB}>Service B</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick={navigateToContact}>Contact</a>
+            </li>
+        </ul>
+    </nav>
+</template>
